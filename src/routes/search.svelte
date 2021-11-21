@@ -1,8 +1,15 @@
 <script context="module">
 	import { variables } from '../variables';
+	import { getLocaleFromNavigator } from "svelte-i18n";
+
 
 	async function getShippingMethods(id) {
-		const res = await fetch(`${variables.apiURL}/api/v1/shipping_methods/${id}/`);
+		const res = await fetch(`${variables.apiURL}/api/v1/shipping_methods/${id}/`, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept-Language': getLocaleFromNavigator(),
+			}
+		});
 		return res.ok ? await res.json() : { error: res };
 	}
 
@@ -11,7 +18,12 @@
 	 */
 	export async function load({ page, fetch, session, stuff }) {
 		const url = `${variables.apiURL}/api/v1/products/?search=name:${page.query.get('q')}`;
-		const res = await fetch(url);
+		const res = await fetch(url, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept-Language': getLocaleFromNavigator(),
+			}
+		});
 
 		if (res.ok) {
 			let products = await res.json();
