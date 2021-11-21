@@ -1,0 +1,19 @@
+{
+    "what_we_do": "Find your FPV parts from different stores to get the best price",
+    "search_btn": "Search",
+    "search_placeholder": "Search for FPV parts",
+    "stock_unknown": "Could be in stock",
+    "in_stock": "In stock",
+    "out_of_stock": "Out of stock",
+    "free_shipping_condition": "on orders",
+    "price": "Price",
+    "name": "Name",
+    "shipping_time": "Shipping Time",
+    "other_shipping_methods": "All shipping methods",
+    "day": "day",
+    "days": "days",
+    "close": "Close",
+    "no_results_title": "Ops, no results found for:",
+    "error_msg": "Something went wrong, please try later",
+    "return_home": "Return Home"
+}

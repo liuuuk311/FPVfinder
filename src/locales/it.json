@@ -1,0 +1,19 @@
+{
+    "what_we_do": "Trova i migliori prezzi per l'FPV cercando su diversi negozi online",
+    "search_btn": "Cerca",
+    "search_placeholder": "Cerca un prodotto FPV",
+    "stock_unknown": "Possibile disponibilità",
+    "in_stock": "Disponibile",
+    "out_of_stock": "Esaurito",
+    "free_shipping_condition": "per ordini superiori a",
+    "price": "Prezzo",
+    "name": "Nome",
+    "shipping_time": "Tempo di spedizione",
+    "other_shipping_methods": "Altre spedizioni",
+    "day": "giorno",
+    "days": "giorni",
+    "close": "Chiudi",
+    "no_results_title": "Ops, non ci sono risultati per:",
+    "error_msg": "Qualcosa è andato storto, per favore riprova più tardi",
+    "return_home": "Torna alla home"
+}
