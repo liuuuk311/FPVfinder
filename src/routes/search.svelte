@@ -1,7 +1,28 @@
 <script context="module">
-	import { variables } from '../variables';
+	/**
+	 * @type {import('@sveltejs/kit').Load}
+	 */
+	export async function load({ page, fetch, session, stuff }) {
+		return {
+			props: {
+				query: page.query.get('q')
+			}
+		}
+	}
+</script>
+
+<script>
 	import { getLocaleFromNavigator } from "svelte-i18n";
 
+	import SearchBar from '../compontents/search/SearchBar.svelte';
+	import ProductCard from '../compontents/search/ProductCard.svelte';
+	import Footer from '../compontents/Footer.svelte';
+	import NoResults from '../compontents/search/NoResults.svelte';
+	import Error from './__error.svelte';
+
+	export let query;
+
+	let shippingMethods = {};
 
 	async function getShippingMethods(id) {
 		const res = await fetch(`${variables.apiURL}/api/v1/shipping_methods/${id}/`, {
@@ -13,56 +34,40 @@
 		return res.ok ? await res.json() : { error: res };
 	}
 
-	/**
-	 * @type {import('@sveltejs/kit').Load}
-	 */
-	export async function load({ page, fetch, session, stuff }) {
-		const url = `${variables.apiURL}/api/v1/products/?search=name:${page.query.get('q')}`;
-		const res = await fetch(url, {
+	async function getSearchResults(query, callback) {
+		const response = await fetch(`${variables.apiURL}/api/v1/products/?search=name:${query}`, {
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept-Language': getLocaleFromNavigator(),
 			}
 		});
-
-		if (res.ok) {
-			let products = await res.json();
-			let storesId = Array.from(new Set(products.map((product) => product.store.id)));
-			return {
-				props: {
-					products: products,
-					storesId: storesId
-				}
-			};
+		const data = await response.json();
+		if (response.ok) {
+			callback(data);
+			return data;
+		} else {
+			throw new Error(data);
 		}
-
-		return {
-			status: res.status,
-			error: new Error(`Could not load ${url}`)
-		};
 	}
+
+	function loadShippingMethods(products) {
+		setTimeout(
+			() => Array.from(new Set(
+				products
+				.map((product) => product.store.id)))
+				.map(async (id) => (shippingMethods[id] = await getShippingMethods(id))),
+			500
+		)
+	}
+	
+	
 </script>
-
-<script>
-	import SearchBar from '../compontents/search/SearchBar.svelte';
-	import ProductCard from '../compontents/search/ProductCard.svelte';
-	import Footer from '../compontents/Footer.svelte';
-	import NoResults from '../compontents/search/NoResults.svelte';
-
-	export let products;
-	export let storesId;
-
-	let shippingMethods = {};
-	setTimeout(
-		() => storesId.map(async (id) => (shippingMethods[id] = await getShippingMethods(id))),
-		1000
-	);
-</script>
-
-{#if products.length > 1}
+{#await getSearchResults(query, loadShippingMethods)}
+<p>Loading</p>
+{:then products}
+{#if products.length > 0}
 	<div class="p-2 max-w-4xl">
 		<SearchBar />
-
 		<div class="grid grid-cols-1 gap-2">
 			{#each products as product}
 				<ProductCard {product} shippingMethods={shippingMethods[product.store.id]} />
@@ -79,3 +84,6 @@
 		<Footer />
 	</div>
 {/if}
+{:catch error}
+<p>Error</p>
+{/await}
