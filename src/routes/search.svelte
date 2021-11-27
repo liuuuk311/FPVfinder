@@ -19,6 +19,7 @@
 	import Footer from '../compontents/Footer.svelte';
 	import NoResults from '../compontents/search/NoResults.svelte';
 	import Error from './__error.svelte';
+	import { variables } from '../variables';
 
 	export let query;
 
@@ -86,4 +87,5 @@
 {/if}
 {:catch error}
 <p>Error</p>
+{console.log(error)}
 {/await}
