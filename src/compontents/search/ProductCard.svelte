@@ -16,9 +16,9 @@
 {/if}
 <div class="w-full bg-white rounded-lg sahdow-lg overflow-hidden flex lg:flex-row flex-col">
     <div class="flex flex-row">
-        <div class="w-1/4 lg:w-1/6 ml-4">
+        <div class="w-1/4 lg:w-1/6 ml-4 my-auto">
             <img
-                class="object-center object-contain h-full"
+                class="object-center object-contain"
                 src={product.image}
                 alt={product.name}
             />
