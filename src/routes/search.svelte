@@ -67,9 +67,9 @@
 <p>Loading</p>
 {:then products}
 {#if products.length > 0}
-	<div class="p-2 max-w-4xl">
+	<div class="p-2">
 		<SearchBar />
-		<div class="grid grid-cols-1 gap-2">
+		<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1 lg:gap-2">
 			{#each products as product}
 				<ProductCard {product} shippingMethods={shippingMethods[product.store.id]} />
 			{/each}
@@ -77,7 +77,7 @@
 	</div>
 	<Footer />
 {:else}
-	<div class="p-2 max-w-4xl">
+	<div class="p-2">
 		<SearchBar />
 	</div>
 	<NoResults />
