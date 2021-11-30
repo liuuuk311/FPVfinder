@@ -5,7 +5,8 @@
 	export async function load({ page, fetch, session, stuff }) {
 		return {
 			props: {
-				query: page.query.get('q')
+				query: page.query.get('q'),
+				page: page.query.get('page') !== null ? page.query.get('page') : 1,
 			}
 		}
 	}
@@ -16,12 +17,14 @@
 
 	import SearchBar from '../compontents/search/SearchBar.svelte';
 	import ProductCard from '../compontents/search/ProductCard.svelte';
+	import Pagination from '../compontents/search/Pagination.svelte';
 	import Footer from '../compontents/Footer.svelte';
 	import NoResults from '../compontents/search/NoResults.svelte';
 	import Error from './__error.svelte';
 	import { variables } from '../variables';
 
 	export let query;
+	export let page;
 
 	let shippingMethods = {};
 
@@ -35,8 +38,8 @@
 		return res.ok ? await res.json() : { error: res };
 	}
 
-	async function getSearchResults(query, callback) {
-		const response = await fetch(`${variables.apiURL}/api/v1/products/?search=${query}`, {
+	async function getSearchResults(query, page, callback) {
+		const response = await fetch(`${variables.apiURL}/api/v1/products/?search=${query}&page=${page}`, {
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept-Language': getLocaleFromNavigator(),
@@ -63,17 +66,18 @@
 	
 	
 </script>
-{#await getSearchResults(query, loadShippingMethods)}
+{#await getSearchResults(query, page, loadShippingMethods)}
 <p>Loading</p>
-{:then products}
-{#if products.length > 0}
+{:then data}
+{#if data.count > 0}
 	<div class="p-2">
 		<SearchBar />
 		<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1 lg:gap-2">
-			{#each products as product}
+			{#each data.results as product}
 				<ProductCard {product} shippingMethods={shippingMethods[product.store.id]} />
 			{/each}
 		</div>
+		<Pagination totalItems={data.count} currentPage={page} query={query}/>
 	</div>
 	<Footer />
 {:else}
