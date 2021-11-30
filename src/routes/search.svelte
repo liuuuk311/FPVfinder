@@ -36,7 +36,7 @@
 	}
 
 	async function getSearchResults(query, callback) {
-		const response = await fetch(`${variables.apiURL}/api/v1/products/?search=name:${query}`, {
+		const response = await fetch(`${variables.apiURL}/api/v1/products/?search=${query}`, {
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept-Language': getLocaleFromNavigator(),
