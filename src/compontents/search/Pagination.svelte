@@ -4,8 +4,6 @@
     export let query;
 
     const totalPages = parseInt(totalItems/30)
-    console.log(totalPages);
-    console.log(currentPage);
 </script>
 <div class="flex flex-col items-center my-12">
     <div class="flex text-gray-700">
