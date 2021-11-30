@@ -3,7 +3,7 @@
     export let currentPage;
     export let query;
 
-    const totalPages = parseInt(totalItems/20)
+    const totalPages = parseInt(totalItems/30)
     console.log(totalPages);
     console.log(currentPage);
 </script>
