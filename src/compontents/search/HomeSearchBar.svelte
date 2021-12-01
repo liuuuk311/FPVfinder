@@ -3,6 +3,8 @@
 	import { onMount } from 'svelte'
 	import { goto } from '$app/navigation';
 	import { keywords } from '../../stores/keywordsStore.js';
+	import { variables } from '../../variables';
+
 	let typedKeywords = '';
 
 	const search = (event) => {
@@ -33,7 +35,7 @@
 					/>
 					<button
 						on:click={search}
-						class="bg-indigo-500 text-white text-base rounded-full py-3 px-6 font-bold"
+						class="bg-{variables.mainAccentColor} text-white text-base rounded-full py-3 px-6 font-bold"
 						>{$_('search_btn')}</button
 					>
 				</div>

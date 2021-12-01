@@ -1,4 +1,6 @@
 <script>
+    import { variables } from '../../variables';
+
     export let totalItems;
     export let currentPage;
     export let query;
@@ -18,13 +20,13 @@
         {/if}
         <div class="flex h-8 font-medium rounded-full bg-gray-200">
             {#each Array(totalPages - 1) as _, page}
-                <div class="w-8 md:flex justify-center items-center hidden cursor-pointer leading-5 transition duration-150 ease-in rounded-full {parseInt(page) + 1 == currentPage ? 'bg-indigo-500 text-white': ''}">
+                <div class="w-8 md:flex justify-center items-center hidden cursor-pointer leading-5 transition duration-150 ease-in rounded-full {parseInt(page) + 1 == currentPage ? `bg-${variables.mainAccentColor} text-white`: ''}">
                     <a href="/search?q={query}&page={parseInt(page)+1}">
                         {page + 1}
                     </a>
                 </div>
             {/each}
-            <div class="w-8 h-8 md:hidden flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full bg-indigo-600 text-white">{currentPage}</div>
+            <div class="w-8 h-8 md:hidden flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full bg-{variables.mainAccentColor} text-white">{currentPage}</div>
         </div>
         {#if parseInt(currentPage) + 1 !== totalPages }
         <div class="h-8 w-8 ml-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer">

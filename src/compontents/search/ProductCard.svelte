@@ -24,7 +24,7 @@
             />
         </div>
         <div class="text-left p-4">
-            <p class="lg:text-xl text-sm text-indigo-600 font-normal truncate"><a href={product.link} target="_blank" rel="nofollow">{product.name}</a></p>
+            <p class="lg:text-xl text-sm text-gray-800 font-semibold truncate"><a href={product.link} target="_blank" rel="nofollow">{product.name}</a></p>
             {#if product.is_available == null}
                 <span class="bg-yellow-500 rounded-full inline-block h-2 w-2"></span>
                 <p class="mx-1 inline-block md:text-base text-gray-400 font-normal text-xs">{$_('stock_unknown')}</p>
@@ -42,7 +42,7 @@
             {:else}
                 <p class="text-xs lg:text-sm text-gray-600 font-thin">{$_('price')} {formatPrice(product.store.best_shipping_method.price, product.currency)}</p>
             {/if}
-            <button on:click={toggleModal} class="my-2 text-indigo-500 text-md sm:text-sm font-light hidden md:block">{$_('other_shipping_methods')}</button>
+            <button on:click={toggleModal} class="my-2 text-gray-600 text-md sm:text-sm font-light hidden md:block">{$_('other_shipping_methods')}</button>
         </div>
     </div>
 </div>

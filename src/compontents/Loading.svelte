@@ -17,7 +17,7 @@
   display: inline-block;
   width: 15px;
   height: 15px;
-  background-color: rgb(99, 102, 241);
+  background-color: rgb(251, 191, 36);
   border-radius: 50%;
   animation: loading 1s cubic-bezier(.8, .5, .2, 1.4) infinite;
   transform-origin: bottom center;
@@ -26,15 +26,15 @@
 @keyframes loading{
   0%{
     transform: translateY(0px);
-    background-color: rgb(99, 102, 241);
+    background-color: rgb(252, 211, 77);
   }
   50%{
     transform: translateY(50px);
-    background-color: rgb(44, 47, 242);
+    background-color: rgb(251, 191, 36);
   }
   100%{
     transform: translateY(0px);
-    background-color: rgb(99, 102, 241);
+    background-color: rgb(252, 211, 77);
   }
 }
 .circle-1{
