@@ -15,5 +15,11 @@
     "close": "Close",
     "no_results_title": "Ops, no results found for:",
     "error_msg": "Something went wrong, please try later",
-    "return_home": "Return Home"
+    "return_home": "Return Home",
+    "unexpected_error": "Unexpected Error",
+    "retry_later": "We are fixing this error, please retry later",
+    "results_count": "Results",
+    "order_by_price": "Price",
+    "order_by_relevance": "Relevance",
+    "order_by_popularity": "Popularity"
 }

@@ -17,6 +17,7 @@
     getLocaleFromNavigator,
     isLoading,
   } from "svelte-i18n";
+import Loading from '../compontents/Loading.svelte';
 
   // note it's ending is .json, while the filename in static/ is  .json.js
   register('en', () => import('../locales/en.json'));
@@ -32,7 +33,7 @@
 </script>
 
 {#if $isLoading}
-  Loading...
+<Loading/>
 {:else}
   <slot />
 {/if}

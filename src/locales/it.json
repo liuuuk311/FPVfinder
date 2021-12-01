@@ -15,5 +15,11 @@
     "close": "Chiudi",
     "no_results_title": "Ops, non ci sono risultati per:",
     "error_msg": "Qualcosa è andato storto, per favore riprova più tardi",
-    "return_home": "Torna alla home"
+    "return_home": "Torna alla home",
+    "unexpected_error": "Errore Inaspettato",
+    "retry_later": "Stiamo già sistemando questo errore, riprova più tardi",
+    "results_count": "Risultati",
+    "order_by_price": "Prezzo",
+    "order_by_relevance": "Rilevanza",
+    "order_by_popularity": "Popolarità"
 }
