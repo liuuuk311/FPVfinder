@@ -18,9 +18,11 @@
     "return_home": "Return Home",
     "unexpected_error": "Unexpected Error",
     "retry_later": "We are fixing this error, please retry later",
-    "products_from": "products from",
+    "products_from": "items from",
     "stores": "stores",
     "order_by_price": "Price",
     "order_by_relevance": "Relevance",
-    "order_by_popularity": "Popularity"
+    "order_by_popularity": "Popularity",
+    "filter_title": "Filters",
+    "filter_show_out_of_stock": "Show items out of stock"
 }

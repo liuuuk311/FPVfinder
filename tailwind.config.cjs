@@ -4,7 +4,11 @@ module.exports = {
   darkMode: false,
   theme: {},
   variants: {
-    extend: {},
+    outline: ["focus"],
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms")({
+      strategy: 'class',
+    }),
+  ],
 }

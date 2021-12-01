@@ -27,9 +27,9 @@
 					<input
 						bind:this={searchInput}
 						bind:value={typedKeywords}
-						class="text-base text-gray-400 bg-white flex-grow outline-none py-3 px-2 mx-2"
-						type="text"
+						class="text-base text-gray-400 bg-white flex-grow outline-none focus:outline-none py-3 px-2 mx-2"
 						placeholder={$_('search_placeholder')}
+						input="text" 
 					/>
 					<button
 						on:click={search}

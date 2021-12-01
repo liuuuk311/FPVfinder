@@ -19,7 +19,10 @@
     "unexpected_error": "Errore Inaspettato",
     "retry_later": "Stiamo già sistemando questo errore, riprova più tardi",
     "products_from": "prodotti da",
+    "stores": "negozi",
     "order_by_price": "Prezzo",
     "order_by_relevance": "Rilevanza",
-    "order_by_popularity": "Popolarità"
+    "order_by_popularity": "Popolarità",
+    "filter_title": "Filtri",
+    "filter_show_out_of_stock": "Mostra prodotti non disponibili"
 }

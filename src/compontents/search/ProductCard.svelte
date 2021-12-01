@@ -18,7 +18,7 @@
     <div class="flex flex-col">
         <div class="m-auto p-2">
             <img
-                class="object-center object-contain h-36 lg:h-96"
+                class="object-center object-contain h-36 lg:h-56"
                 src={product.image}
                 alt={product.name}
             />

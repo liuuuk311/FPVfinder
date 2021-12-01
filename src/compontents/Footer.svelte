@@ -7,7 +7,7 @@
 
 <footer class="text-gray-600 body-font bg-gray-700">
 	<div class="bg-gray-900">
-		<div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+		<div class="mx-auto max-w-7xl py-4 px-5 flex flex-wrap flex-col sm:flex-row">
 			<p class="text-white text-sm text-center sm:text-left">
 				© {year}
 				{websiteName} —
