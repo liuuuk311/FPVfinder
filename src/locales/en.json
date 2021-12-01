@@ -18,7 +18,8 @@
     "return_home": "Return Home",
     "unexpected_error": "Unexpected Error",
     "retry_later": "We are fixing this error, please retry later",
-    "results_count": "Results",
+    "products_from": "products from",
+    "stores": "stores",
     "order_by_price": "Price",
     "order_by_relevance": "Relevance",
     "order_by_popularity": "Popularity"
