@@ -14,6 +14,7 @@
 
 <script>
 	import { getLocaleFromNavigator } from "svelte-i18n";
+	import { variables } from '../variables';
 
 	import SearchBar from '../compontents/search/SearchBar.svelte';
 	import Filters from '../compontents/search/Filters.svelte';
@@ -23,7 +24,7 @@
 	import FixedFooter from '../compontents/FixedFooter.svelte';
 	import NoResults from '../compontents/search/NoResults.svelte';
 	import Error from '../compontents/Error.svelte';
-	import { variables } from '../variables';
+	
 
 	export let query;
 	export let page;
