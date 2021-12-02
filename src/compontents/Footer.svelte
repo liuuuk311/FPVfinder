@@ -1,8 +1,9 @@
 <script>
 	import { _ } from 'svelte-i18n';
+	import { variables } from '../variables';
+	
 	let year = new Date().getFullYear();
 
-	let websiteName = 'FPV finder';
 </script>
 
 <footer class="dark:text-gray-300 text-gray-700 body-font">
@@ -10,7 +11,7 @@
 		<div class="py-4 px-5 flex flex-wrap flex-col sm:flex-row">
 			<p class="text-sm text-center sm:text-left">
 				© {year}
-				{websiteName} —
+				{variables.websiteName} —
 				<span class="ml-1">Made with ♡ by</span>
 				<a
 					href="https://www.linkedin.com/in/luca-palonca/"

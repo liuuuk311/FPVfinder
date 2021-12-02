@@ -1,38 +1,37 @@
 <script>
     import { _ } from 'svelte-i18n'
 </script>
-
-<h1>500</h1>
-<h2>{$_('unexpected_error')} <b>:(</b></h2>
-<p>{$_('retry_later')}</p>
-<div class="gears hidden lg:block">
-<div class="gear one">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
+<div class="flex flex-col flex-grow">
+  <h1 class="text-gray-700 dark:text-gray-200">500</h1>
+  <h2>{$_('unexpected_error')} <b>:(</b></h2>
+  <p>{$_('retry_later')}</p>
+  <div class="gears hidden lg:block">
+  <div class="gear one">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+  </div>
+  <div class="gear two">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+  </div>
+  <div class="gear three">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+  </div>
+  </div>
 </div>
-<div class="gear two">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-</div>
-<div class="gear three">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-</div>
-</div>
-
 <style>
     /**/
 :root {
-  --main-color: #eaeaea;
+  --main-color: rgb(243, 244, 246);
   --stroke-color: black;
 }
 /**/
 h1 {
   margin: 100px auto 0 auto;
-  color: var(--stroke-color);
   font-size: 10rem; line-height: 10rem;
   font-weight: 200;
   text-align: center;
@@ -81,7 +80,7 @@ h1, h2, p {
   border-radius: 50%;
   border: 5px solid var(--stroke-color);
   box-sizing: border-box;
-  background: var(--main-color);
+  background: rgb(243, 244, 246);
 }
 .gear.one {
   left: -130px;

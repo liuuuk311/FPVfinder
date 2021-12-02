@@ -1,5 +1,5 @@
 <script>
-    import HomeSearchBar from "../compontents/HomeSearchBar.svelte"
+	import HomeSearchBar from '../compontents/home/HomeSearchBar.svelte';
 </script>
 
-<HomeSearchBar/>
+<HomeSearchBar />
