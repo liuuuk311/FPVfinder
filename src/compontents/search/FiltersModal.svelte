@@ -1,6 +1,6 @@
 <script>
     import { _ } from 'svelte-i18n';
-    import { clickOutside } from './clickOutsite';
+    import { clickOutside } from '../../helpers/clickOutsite';
 
     export let toggleModal;
 </script>
