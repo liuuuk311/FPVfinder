@@ -29,10 +29,9 @@
     loadShippingMethods(data.results)
     
 </script>
-<div class="mx-2 md:mx-auto max-w-7xl">
-	<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1 lg:gap-2">
-		{#each data.results as product}
-			<ProductCard product={product} shippingMethods={shippingMethods[product.store.id]} />
-		{/each}
-	</div>
+
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+	{#each data.results as product}
+		<ProductCard product={product} shippingMethods={shippingMethods[product.store.id]} />
+	{/each}
 </div>

@@ -17,8 +17,8 @@
 </script>
 
 
-<div class="dark:bg-gray-700">
-	<div class="flex flex-col mx-auto max-w-7xl md:flex-row md:justify-start items-center mb-2 pb-4 px-2">
+<div class="dark:bg-gray-800">
+	<div class="flex flex-col md:flex-row md:justify-start items-center px-2">
 		<form on:submit={search} class="w-full md:flex-grow">
 			<div class="flex-grow items-center bg-white dark:bg-gray-600 dark:text-gray-100 rounded-full overflow-hidden">
 				<input bind:value={searchedKeywords} input="text" class="appearance-none border-none focus:border-none text-sm md:text-base text-gray-400 bg-white dark:bg-gray-600 dark:text-gray-100 flex-grow outline-none py-3 mx-2 px-2 md:w-5/6" placeholder="{$_('search_placeholder')}" />

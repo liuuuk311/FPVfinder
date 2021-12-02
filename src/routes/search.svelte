@@ -20,10 +20,9 @@
 	import Filters from '../compontents/search/Filters.svelte';
 	import ProductGrid from '../compontents/search/ProductGrid.svelte';
 	import Pagination from '../compontents/search/Pagination.svelte';
-	import Footer from '../compontents/Footer.svelte';
-	import FixedFooter from '../compontents/FixedFooter.svelte';
 	import NoResults from '../compontents/search/NoResults.svelte';
 	import Error from '../compontents/Error.svelte';
+	import Loading from '../compontents/Loading.svelte';
 	
 
 	export let query;
@@ -42,18 +41,17 @@
 </script>
 <SearchBar />
 {#await getSearchResults(query, page)}
-<p>Loading</p>
+<div class="flex flex-grow">
+	<Loading/>
+</div>
 {:then data}
 {#if data.count > 0}
 	<Filters productsCount={data.count}/>
 	<ProductGrid data={data}/>
 	<Pagination totalItems={data.count} currentPage={page} query={query}/>
-	<Footer />
 {:else}
 	<NoResults />
-	<FixedFooter/>
 {/if}
 {:catch}
 	<Error/>
-	<FixedFooter/>
 {/await}

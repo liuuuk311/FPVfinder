@@ -6,8 +6,8 @@
 </script>
 
 <footer class="dark:text-gray-300 text-gray-700 body-font">
-	<div class="dark:bg-gray-700 bg-gray-100">
-		<div class="mx-auto max-w-7xl py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+	<div class="dark:bg-gray-800 bg-gray-100">
+		<div class="py-4 px-5 flex flex-wrap flex-col sm:flex-row">
 			<p class="text-sm text-center sm:text-left">
 				© {year}
 				{websiteName} —

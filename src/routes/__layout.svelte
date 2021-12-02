@@ -1,12 +1,3 @@
-<script context="module">
-  // import '../i18n'
-  // import { waitLocale } from 'svelte-i18n'
-
-  // export async function preload() {
-  //   // awaits for the loading of the 'en-US' and 'en' dictionaries
-  //   return waitLocale()
-  // }
-</script>
 <script>
 	import '../assets/css/tailwind.css'
   import '../assets/css/app.css'
@@ -19,6 +10,7 @@
   } from "svelte-i18n";
   import Loading from '../compontents/Loading.svelte';
   import Header from '../compontents/Header.svelte';
+  import Footer from '../compontents/Footer.svelte'
 
   // note it's ending is .json, while the filename in static/ is  .json.js
   register('en', () => import('../locales/en.json'));
@@ -34,12 +26,15 @@
 
 </script>
 <div class:dark>
-  <main class="bg-gray-100 dark:bg-gray-700 dark:text-gray-100 min-h-screen">
+  <main class="bg-gray-100 dark:bg-gray-800 dark:text-gray-100">
     {#if $isLoading}
       <Loading/>
     {:else}
+    <div class="mx-2 md:mx-auto max-w-7xl min-h-screen flex flex-col justify-between">
       <Header bind:dark/>
       <slot/>
+      <Footer/>
+    </div>
     {/if}
   </main>
 </div>
