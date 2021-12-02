@@ -1,12 +1,15 @@
 <script>
     import { variables } from '../variables';
+    
     import ThemeSwitcher from "./ThemeSwitcher.svelte";
     import Menu from "./Menu.svelte";
+    import Drawer from "./Drawer.svelte";
 
     export let dark;
+    let isOpen = false;
 </script>
 
-<div class="dark:bg-gray-800 bg-gray-100">
+<nav class="dark:bg-gray-800 bg-gray-100">
     <div class="p-2 my-2 flex flex-row justify-between items-center">
         <a href="/" class="hidden md:inline-block">
             <span class="text-3xl font-bold text-white-700 md:text-lg md:w-32">
@@ -14,7 +17,7 @@
             </span>
         </a>
         <div class="flex flex-row flex-grow justify-between md:justify-end items-center">
-            <Menu />
+            <Menu bind:isOpen />
             <a href="/" class="md:hidden">
                 <span class="text-2xl font-bold text-white-700">
                     {variables.websiteName}
@@ -23,4 +26,5 @@
             <ThemeSwitcher bind:dark/>
         </div>
     </div>
-</div>
+    <Drawer bind:isOpen />
+</nav>
