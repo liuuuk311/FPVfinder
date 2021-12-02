@@ -5,23 +5,22 @@
 	let websiteName = 'FPV finder';
 </script>
 
-<footer class="text-gray-600 body-font bg-gray-700">
-	<div class="bg-gray-900">
+<footer class="dark:text-gray-300 text-gray-700 body-font">
+	<div class="dark:bg-gray-700 bg-gray-100">
 		<div class="mx-auto max-w-7xl py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-			<p class="text-white text-sm text-center sm:text-left">
+			<p class="text-sm text-center sm:text-left">
 				© {year}
 				{websiteName} —
-				<span class="text-gray-400 ml-1">Made with ♡ by</span>
+				<span class="ml-1">Made with ♡ by</span>
 				<a
 					href="https://www.linkedin.com/in/luca-palonca/"
 					rel="noopener noreferrer"
-					class="text-gray-400 hover:underline"
+					class="hover:underline"
 					target="_blank">Luca Palonca</a
 				>
 			</p>
 			<span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
 				<a
-					class="text-gray-200"
 					href="https://www.facebook.com/Luca.NorthFPV/"
 					target="_blank"
 					rel="nofollow"
@@ -38,7 +37,7 @@
 					</svg>
 				</a>
 				<a
-					class="ml-3 text-gray-200"
+					class="ml-3"
 					href="https://twitter.com/iamlucafpv"
 					target="_blank"
 					rel="nofollow"
@@ -57,7 +56,7 @@
 					</svg>
 				</a>
 				<a
-					class="ml-3 text-gray-200"
+					class="ml-3"
 					href="https://www.instagram.com/iamlucafpv/"
 					target="_blank"
 					rel="nofollow"
@@ -76,7 +75,7 @@
 					</svg>
 				</a>
 				<a
-					class="ml-3 text-gray-200"
+					class="ml-3"
 					href="https://www.linkedin.com/in/luca-palonca/"
 					target="_blank"
 					rel="nofollow"

@@ -17,7 +17,8 @@
     getLocaleFromNavigator,
     isLoading,
   } from "svelte-i18n";
-import Loading from '../compontents/Loading.svelte';
+  import Loading from '../compontents/Loading.svelte';
+  import Header from '../compontents/Header.svelte';
 
   // note it's ending is .json, while the filename in static/ is  .json.js
   register('en', () => import('../locales/en.json'));
@@ -29,11 +30,16 @@ import Loading from '../compontents/Loading.svelte';
     initialLocale: getLocaleFromNavigator(),
   });
 
+  let dark = false;
 
 </script>
-
-{#if $isLoading}
-<Loading/>
-{:else}
-  <slot />
-{/if}
+<div class:dark>
+  <main class="bg-gray-100 dark:bg-gray-700 dark:text-gray-100 min-h-screen">
+    {#if $isLoading}
+      <Loading/>
+    {:else}
+      <Header bind:dark/>
+      <slot/>
+    {/if}
+  </main>
+</div>
