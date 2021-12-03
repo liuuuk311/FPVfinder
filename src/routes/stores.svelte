@@ -20,7 +20,7 @@
 	<Loading/>
 </div>
 {:then data}
-<div class="">
+<div class="mx-4 md:mx-0">
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2">
         {#each data.results as country}
         <div class="">
