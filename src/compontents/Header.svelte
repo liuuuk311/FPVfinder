@@ -5,7 +5,6 @@
     import Menu from "./Menu.svelte";
     import Drawer from "./Drawer.svelte";
 
-    export let dark;
     let isOpen = false;
 </script>
 
@@ -23,7 +22,7 @@
                     {variables.websiteName}
                 </span>
             </a>
-            <ThemeSwitcher bind:dark/>
+            <ThemeSwitcher/>
         </div>
     </div>
     <Drawer bind:isOpen />

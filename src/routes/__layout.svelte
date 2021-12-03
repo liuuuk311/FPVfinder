@@ -8,6 +8,9 @@
     getLocaleFromNavigator,
     isLoading,
   } from "svelte-i18n";
+  import { onDestroy } from 'svelte';
+
+  import { theme } from '../stores/themeStore';
   import Loading from '../compontents/Loading.svelte';
   import Header from '../compontents/Header.svelte';
   import Footer from '../compontents/Footer.svelte'
@@ -22,16 +25,16 @@
     initialLocale: getLocaleFromNavigator(),
   });
 
-  let dark = false;
-
 </script>
-<div class:dark>
+<div class={$theme}>
   <main class="bg-gray-100 dark:bg-gray-800 dark:text-gray-100">
     {#if $isLoading}
-      <Loading/>
+      <div class="h-screen">
+        <Loading/>
+      </div>
     {:else}
     <div class="mx-2 md:mx-auto max-w-7xl min-h-screen flex flex-col justify-between">
-      <Header bind:dark/>
+      <Header/>
       <slot/>
       <Footer/>
     </div>

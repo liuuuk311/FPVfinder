@@ -1,11 +1,15 @@
-<div class="wrapper">
-    <span class="circle circle-1"></span>
-    <span class="circle circle-2"></span>
-    <span class="circle circle-3"></span>
-    <span class="circle circle-4"></span>
-    <span class="circle circle-5"></span>
-  </div>
+<script>
+  import { theme } from '../stores/themeStore';
 
+  console.log($theme);
+</script>
+<div class="wrapper">
+  <span class="circle circle-1"></span>
+  <span class="circle circle-2"></span>
+  <span class="circle circle-3"></span>
+  <span class="circle circle-4"></span>
+  <span class="circle circle-5"></span>
+</div>
 <style>
 .wrapper{
   position:absolute;
