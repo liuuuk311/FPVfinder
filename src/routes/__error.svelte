@@ -9,16 +9,11 @@
 </script>
 
 <script>
-	import { _ } from 'svelte-i18n'
-	import Header from "../compontents/Header.svelte"
-    import Footer from '../compontents/Footer.svelte'
+	import { _ } from 'svelte-i18n';
+	import { variables } from '../variables';
 </script>
 
-<Header/>
 <div class="flex flex-col items-center">
 	<h1 class="text-xl">{$_("error_msg")}</h1>
-	<a href="/" class="text-xl text-indigo-500">{$_("return_home")}</a>
-</div>
-<div class="fixed bottom-0 left-0 w-full">
-    <Footer/>
+	<a href="/" class="text-xl text-{variables.mainAccentColor}">{$_("return_home")}</a>
 </div>

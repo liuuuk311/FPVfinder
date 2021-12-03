@@ -6,7 +6,7 @@
     export let productsCount;
     
     async function getStores() {
-		const res = await fetch(`${variables.apiURL}/api/v1/stores/`, {
+		const res = await fetch(`${variables.apiURL}/api/v1/stores/stats`, {
 			headers: {
 				'Content-Type': 'application/json',
 			}
@@ -28,7 +28,7 @@
         <p></p>
     {:then data} 
     <div class="flex items-center justify-center">
-        <p class="text-sm text-gray-600 dark:text-gray-300 md:text-lg">{productsCount} {$_('products_from')} {data.count} {$_('stores')}</p>  
+        <p class="text-sm text-gray-600 dark:text-gray-300 md:text-lg">{productsCount} {$_('products_from')} {data.total_stores} {$_('stores')}</p>  
     </div> 
     {/await}
    

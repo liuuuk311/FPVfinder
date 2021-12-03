@@ -24,5 +24,8 @@
     "order_by_relevance": "Rilevanza",
     "order_by_popularity": "Popolarità",
     "filter_title": "Filtri",
-    "filter_show_out_of_stock": "Mostra prodotti non disponibili"
+    "filter_show_out_of_stock": "Mostra prodotti non disponibili",
+    "menu_best_products": "Prodotti migliori",
+    "menu_stores": "Negozi",
+    "menu_donate": "Dona"
 }

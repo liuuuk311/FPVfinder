@@ -24,5 +24,8 @@
     "order_by_relevance": "Relevance",
     "order_by_popularity": "Popularity",
     "filter_title": "Filters",
-    "filter_show_out_of_stock": "Show items out of stock"
+    "filter_show_out_of_stock": "Show items out of stock",
+    "menu_best_products": "Best Products",
+    "menu_stores": "Stores",
+    "menu_donate": "Donate"
 }

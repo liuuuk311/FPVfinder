@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     export let isOpen;
 
     const toggleMenu = (e) => {
@@ -8,9 +9,9 @@
 </script>
 
 <div class="hidden md:flex md:flex-row">
-    <a href="/" class="px-3">Best products</a>
-    <a href="/" class="px-3">Stores</a>
-    <a href="/" class="px-3">Donate</a>
+    <a href="/" class="px-3">{$_('menu_best_products')}</a>
+    <a href="/stores" class="px-3">{$_('menu_stores')}</a>
+    <a href="/" class="px-3">{$_('menu_donate')}</a>
 </div>
 <div class="md:hidden">
     <button on:click={toggleMenu} class="p-1">

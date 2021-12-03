@@ -1,5 +1,4 @@
 <script>
-	import { _ } from 'svelte-i18n';
 	import { variables } from '../variables';
 	
 	let year = new Date().getFullYear();
