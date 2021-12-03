@@ -1,13 +1,3 @@
-<script context="module">
-	export function load({ error, status }) {
-		return {
-			props: {
-				title: `${status}: ${error.message}`
-			}
-		};
-	}
-</script>
-
 <script>
 	import { _ } from 'svelte-i18n';
 	import { variables } from '../variables';
