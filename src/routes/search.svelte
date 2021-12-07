@@ -33,7 +33,6 @@
 	async function getSearchResults(query, page) {
 		data = undefined;
 		const url = `${variables.apiURL}/api/v1/products/?search=${query}&page=${page}${getIsAvailable()}${getOrdering()}`;
-		console.log(`fetching ${url}`)
 		const response = await fetch(url, {
 			headers: {
 				'Content-Type': 'application/json',

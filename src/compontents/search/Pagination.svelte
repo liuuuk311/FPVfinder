@@ -6,9 +6,6 @@
     export let totalItems;
 
     const totalPages = parseInt(totalItems) < 30 ? 1 : parseInt(totalItems/30)
-    console.log(totalPages)
-
-    console.log(Array(totalPages - 1))
 </script>
 {#if totalPages > 1}
 <div class="flex flex-col items-center my-12">
