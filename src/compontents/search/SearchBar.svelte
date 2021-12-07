@@ -1,7 +1,7 @@
 <script>
 	import { _ } from 'svelte-i18n'
 	import { goto } from '$app/navigation';
-	import { keywords } from '../../stores/keywordsStore.js';
+	import { keywords } from '../../stores/parametersStore.js';
 	import { variables } from '../../variables';
 
 	let searchedKeywords;

@@ -1,6 +1,6 @@
 <script>
     import { _ } from 'svelte-i18n'
-    import { keywords } from '../../stores/keywordsStore.js';
+    import { keywords } from '../../stores/parametersStore.js';
 </script>
 
 <div class="md:mx-5 mx-auto">

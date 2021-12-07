@@ -8,7 +8,6 @@
     getLocaleFromNavigator,
     isLoading,
   } from "svelte-i18n";
-  import { onDestroy } from 'svelte';
 
   import { theme } from '../stores/themeStore';
   import Loading from '../compontents/Loading.svelte';

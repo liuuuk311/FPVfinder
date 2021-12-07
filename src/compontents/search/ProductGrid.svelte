@@ -4,6 +4,8 @@
     import ProductCard from './ProductCard.svelte';
 
     export let data;
+
+
     let shippingMethods = {};
     
     async function getShippingMethods(id) {
@@ -32,6 +34,6 @@
 
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
 	{#each data.results as product}
-		<ProductCard product={product} shippingMethods={shippingMethods[product.store.id]} />
+		<ProductCard product={product} shippingMethods={shippingMethods[product.store.id]}/>
 	{/each}
 </div>

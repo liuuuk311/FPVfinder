@@ -1,7 +1,5 @@
 <script>
   import { theme } from '../stores/themeStore';
-
-  console.log($theme);
 </script>
 <div class="wrapper">
   <span class="circle circle-1"></span>

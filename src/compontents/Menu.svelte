@@ -9,9 +9,8 @@
 </script>
 
 <div class="hidden md:flex md:flex-row">
-    <a href="/" class="px-3">{$_('menu_best_products')}</a>
+    <a href="/most-viewed" class="px-3">{$_('menu_best_products')}</a>
     <a href="/stores" class="px-3">{$_('menu_stores')}</a>
-    <a href="/" class="px-3">{$_('menu_donate')}</a>
 </div>
 <div class="md:hidden">
     <button on:click={toggleMenu} class="p-1">
