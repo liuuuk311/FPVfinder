@@ -61,6 +61,7 @@
 
 	onMount(async () => await getSearchResults($keywords, $pageStore));
 
+	keywords.subscribe(async () => await getSearchResults($keywords, $pageStore))
 	availabilityFilter.subscribe(async () => await getSearchResults($keywords, $pageStore))
 	ordering.subscribe(async () => await getSearchResults($keywords, $pageStore))
 	
@@ -77,5 +78,7 @@
 	<ProductGrid data={data}/>
 	<Pagination totalItems={data.count}/>
 {:else}
+<div class="flex flex-grow">
 	<NoResults />
+</div>
 {/if}

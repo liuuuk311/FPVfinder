@@ -1,5 +1,5 @@
 <script>
-	import { getLocaleFromNavigator } from "svelte-i18n";
+	import { _, getLocaleFromNavigator } from "svelte-i18n";
 	import { variables } from '../../variables';
 
 	import ProductGrid from '../search/ProductGrid.svelte';
@@ -25,6 +25,7 @@
 </div>
 {:then data}
 {#if data.count > 0}
+	<h2 class="text-2xl text-center md:text-4xl md:text-left my-5">{$_('most_clicked_title')}</h2>
 	<ProductGrid data={data}/>
 {:else}
 	<NoResults />

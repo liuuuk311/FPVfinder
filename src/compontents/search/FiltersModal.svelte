@@ -24,7 +24,7 @@
 </script>
 <div x-show="showModal" class="fixed flex items-center justify-center overflow-auto z-50 bg-black bg-opacity-40 left-0 right-0 top-0 bottom-0" x-transition:enter="transition ease duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
     <!-- Modal -->
-    <div use:clickOutside on:click_outside={setFiltersAndCloseModal} x-show="showModal" class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow-2xl p-6 w-4/5 mx-10" x-transition:enter="transition ease duration-100 transform" x-transition:enter-start="opacity-0 scale-90 translate-y-1" x-transition:enter-end="opacity-100 scale-100 translate-y-0" x-transition:leave="transition ease duration-100 transform" x-transition:leave-start="opacity-100 scale-100 translate-y-0" x-transition:leave-end="opacity-0 scale-90 translate-y-1">
+    <div use:clickOutside on:click_outside={setFiltersAndCloseModal} x-show="showModal" class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow-2xl p-6 w-4/5 md:w-1/2 mx-10" x-transition:enter="transition ease duration-100 transform" x-transition:enter-start="opacity-0 scale-90 translate-y-1" x-transition:enter-end="opacity-100 scale-100 translate-y-0" x-transition:leave="transition ease duration-100 transform" x-transition:leave-start="opacity-100 scale-100 translate-y-0" x-transition:leave-end="opacity-0 scale-90 translate-y-1">
         <h1 class="text-2xl text-bold my-3 dark:text-gray-200">{$_('filter_title')}</h1>
         <div class="flex flex-col md:flex-row md:items-center">
             <label for="availability" class="text-lg mr-3 dark:text-gray-400">{$_('filter_availability_label')}</label>

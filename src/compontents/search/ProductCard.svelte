@@ -37,14 +37,14 @@
 {/if}
 <div class="bg-white dark:bg-gray-700 rounded-lg sahdow-lg">
 	<div class="flex flex-col h-full">
-		<div class="mx-auto p-2">
+		<div on:click={() => trackAndOpenLink(product)} class="m-auto px-2 py-2">
 			<img
-				class="object-center object-contain h-36 lg:h-56 bg-white rounded-lg"
+				class="object-center object-cover h-36 lg:h-56 w-36 lg:w-56 bg-white rounded-lg"
 				src={product.image}
 				alt={product.name}
 			/>
 		</div>
-		<div class="flex flex-col p-4 py-2 h-full ">
+		<div class="flex flex-col px-3 pb-2 h-full">
 			{#if product.name !== product.display_name}
 			<Tooltip text={product.name}>
 				<button
@@ -80,7 +80,7 @@
 					{/if}
 				
 				</div>
-				<div class="flex flex-col lg:items-end">
+				<div class="flex flex-col lg:items-end py-2">
 					<p class="lg:text-2xl text-lg text-gray-700 dark:text-gray-300 font-bold">
 						{formatPrice(product.price, product.currency)}
 					</p>
