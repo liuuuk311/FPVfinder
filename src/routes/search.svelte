@@ -19,6 +19,7 @@
 	import { getLocaleFromNavigator } from "svelte-i18n";
 	import { variables } from '../variables';
 	import { availabilityFilter, ordering } from "../stores/parametersStore";
+	
 
 	import SearchBar from '../compontents/search/SearchBar.svelte';
 	import Filters from '../compontents/search/Filters.svelte';
