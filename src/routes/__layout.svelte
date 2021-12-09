@@ -43,4 +43,4 @@
     {/if}
   </main>
 </div>
-<GoogleAnalytics properties={[ '296053859' ]} />
+<GoogleAnalytics properties={[ 'G-RB8FS5F48P' ]} />
