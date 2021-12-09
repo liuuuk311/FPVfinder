@@ -10,6 +10,7 @@
   } from "svelte-i18n";
 
   import { theme } from '../stores/preferences';
+  import {GoogleAnalytics} from '@beyonk/svelte-google-analytics';
   import Loading from '../compontents/Loading.svelte';
   import Header from '../compontents/Header.svelte';
   import Footer from '../compontents/Footer.svelte'
@@ -42,3 +43,4 @@
     {/if}
   </main>
 </div>
+<GoogleAnalytics properties={[ '296053859' ]} />
