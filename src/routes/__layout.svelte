@@ -9,10 +9,11 @@
     isLoading,
   } from "svelte-i18n";
 
-  import { theme } from '../stores/themeStore';
+  import { theme } from '../stores/preferences';
   import Loading from '../compontents/Loading.svelte';
   import Header from '../compontents/Header.svelte';
   import Footer from '../compontents/Footer.svelte'
+  import CookieBanner from '../compontents/CookieBanner.svelte';
 
   // note it's ending is .json, while the filename in static/ is  .json.js
   register('en', () => import('../locales/en.json'));
@@ -35,6 +36,7 @@
     <div class="mx-2 md:mx-auto max-w-7xl min-h-screen flex flex-col justify-between">
       <Header/>
       <slot/>
+      <CookieBanner/>
       <Footer/>
     </div>
     {/if}

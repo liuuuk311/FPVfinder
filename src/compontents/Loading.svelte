@@ -1,5 +1,5 @@
 <script>
-  import { theme } from '../stores/themeStore';
+  import { theme } from '../stores/preferences';
 </script>
 <div class="wrapper">
   <span class="circle circle-1"></span>

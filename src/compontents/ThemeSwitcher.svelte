@@ -1,5 +1,5 @@
 <script>
-    import { theme } from '../stores/themeStore';
+    import { theme } from '../stores/preferences';
 </script>
 
 {#if $theme === 'light'}

@@ -41,5 +41,8 @@
     "stats_products": "Products",
     "stats_stores": "Stores",
     "stats_countries": "Countries",
-    "most_clicked_title": "Most viewed products"
+    "most_clicked_title": "Most viewed products",
+    "cookie_msg_1": "By using",
+    "cookie_msg_2": "you agree to our",
+    "cookie_msg_3": "including cookie policy"
 }
