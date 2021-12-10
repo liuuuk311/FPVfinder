@@ -2,15 +2,13 @@
     import {variables} from '../variables';
 
 </script>
+<svelte:head>
+	<title>Privacy</title>
+</svelte:head>
 <h1 class="text-xl font-bold my-2">Privacy Policy of {variables.websiteName}</h1>
 This Application collects some Personal Data from its Users.
 
 This document can be printed for reference by using the print command in the settings of any browser.
-
-<h3 class="text-lg font-bold my-2">Owner and Data Controller</h3>
-FPV FInder
-
-Owner contact email: iamlucafpv@gmail.com
 
 <h3 class="text-lg font-bold my-2">Types of Data collected</h3>
 Among the types of Personal Data that this Application collects, by itself or through third parties, there are: Tracker; Usage Data.
@@ -124,6 +122,10 @@ The Owner reserves the right to make changes to this privacy policy at any time 
 
 Should the changes affect processing activities performed on the basis of the User’s consent, the Owner shall collect new consent from the User, where required.
 
+<h3 class="text-lg font-bold my-2">Owner and Data Controller</h3>
+FPV FInder
+
+Owner contact email: iamlucafpv@gmail.com
 
 <h3 class="text-lg font-bold my-2">Definitions</h3>
 

@@ -67,6 +67,9 @@
 	ordering.subscribe(async () => await getSearchResults($keywords, $pageStore))
 	
 </script>
+<svelte:head>
+	<title>FPV Finder: {$keywords}</title>
+</svelte:head>
 <SearchBar />
 {#if !data}
 <div class="flex flex-grow">

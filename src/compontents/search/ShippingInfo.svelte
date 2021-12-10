@@ -41,7 +41,7 @@
                             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                             {i.name}
                             {#if i.is_free}
-                                - {$_('free_shipping_condition')} {formatPrice(i.min_price_free_shipping, i.currency)}
+                                - {$_('free_shipping_condition')} {formatPrice(i.min_price_shipping_condition, i.currency)}
                             {/if}
                             
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">

@@ -5,5 +5,7 @@
 	
 	onDestroy(() => suggestions.set([]));
 </script>
-
+<svelte:head>
+	<title>FPV Finder</title>
+</svelte:head>
 <HomeSearchBar />
