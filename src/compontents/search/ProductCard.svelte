@@ -84,26 +84,30 @@
 					<p class="lg:text-2xl text-lg text-gray-700 dark:text-gray-300 font-bold">
 						{formatPrice(product.price, product.currency)}
 					</p>
-					<p
-						class="text-xs lg:text-md text-gray-600 dark:text-gray-400 font-thin lg:overflow-ellipsis"
-					>
-						{product.store.best_shipping_method
-							? product.store.best_shipping_method.name
-							: $_('shipping_unknown')}
-					</p>
-					{#if product.store.best_shipping_method && product.store.best_shipping_method.is_free}
+					{#if product.best_shipping_method && product.best_shipping_method.is_free}
+						<p
+							class="text-xs lg:text-md text-green-500 font-semibold uppercase lg:overflow-ellipsis"
+						>
+							{$_('free_shipping')}
+						</p>
+					{:else}
+						<p
+							class="text-xs lg:text-md text-gray-600 dark:text-gray-400 font-thin lg:overflow-ellipsis"
+						>
+							{product.best_shipping_method
+								? product.best_shipping_method.name
+								: $_('shipping_unknown')}
+						</p>
+					{/if}
+					{#if product.best_shipping_method && product.best_shipping_method.is_free}
 						<p class="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-thin">
-							{$_('free_shipping_condition')}
-							{formatPrice(
-								product.store.best_shipping_method.min_price_free_shipping,
-								product.currency
-							)}
+							{$_('price')} {formatPrice(0, product.currency)}
 						</p>
 					{:else}
 						<p class="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-thin">
 							{$_('price')}
-							{product.store.best_shipping_method
-								? formatPrice(product.store.best_shipping_method.price, product.currency)
+							{product.best_shipping_method
+								? formatPrice(product.best_shipping_method.price, product.currency)
 								: 'N/A'}
 						</p>
 					{/if}
