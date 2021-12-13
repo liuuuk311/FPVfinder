@@ -48,7 +48,7 @@
                             {i.min_shipping_time} {i.min_shipping_time === 1 ? $_('day') : $_('days')}
                         </td>
                         <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4 {i.is_free ? 'text-green-500 font-bold uppercase': ''}">
-                            {i.is_free ? $_('free') : formatPrice(i.price, i.currency)}
+                            {i.is_free ? $_('free_shipping') : formatPrice(i.price, i.currency)}
                         </td>
                     </tr>
                     {/each}
