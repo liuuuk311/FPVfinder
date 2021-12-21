@@ -23,7 +23,7 @@
                     </span>
                 </a>
             </div>
-            <div class="my-3">
+            <!-- <div class="my-3">
                 <a href="/most-viewed" class="flex flex-row" on:click={toggleMenu}>
                     <span class="w-1/4 px-2 text-gray-500 my-auto">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -34,7 +34,7 @@
                         {$_('menu_best_products')}
                     </span>
                 </a>
-            </div>
+            </div> -->
             <div class="my-3">
                 <a href="/stores" class="flex flex-row" on:click={toggleMenu}>
                     <span class="w-1/4 px-2 text-gray-500 my-auto">
