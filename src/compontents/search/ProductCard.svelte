@@ -13,11 +13,17 @@
 	const loadedAt = new Date().getTime();
 
 	const toggleModal = (event) => {
+		event.stopPropagation()
 		isModalOpen = !isModalOpen;
 	};
 
 	async function trackAndOpenLink(product) {
-		window.open(product.link, '_blank').focus();
+		var productURL = new URL(product.link)
+		productURL.searchParams.append('utm_source', variables.utmSource)
+		productURL.searchParams.append('utm_medium', variables.utmMedium)
+		productURL.searchParams.append('utm_campaign', variables.utmCampaign)
+
+		window.open(productURL, '_blank').focus();
 		await fetch(`${variables.apiURL}/api/v1/products/${product.id}/click/`, {
 			method: 'POST',
 			body: JSON.stringify({
@@ -30,14 +36,15 @@
 			}
 		});
 	}
+	// 
 </script>
 
 {#if isModalOpen}
 	<ShippingInfo storeName={product.store.name} info={shippingMethods} {toggleModal} />
 {/if}
-<div class="bg-white dark:bg-gray-700 rounded-lg sahdow-lg">
+<div class="bg-gray-50 dark:bg-gray-700 rounded-lg sahdow-lg hover:bg-gray-200 dark:hover:bg-gray-600" on:click={() => trackAndOpenLink(product)}>
 	<div class="flex flex-col h-full">
-		<div on:click={() => trackAndOpenLink(product)} class="m-auto px-2 py-2">
+		<div  class="m-auto px-2 py-2">
 			<img
 				class="object-center object-cover h-36 lg:h-56 w-36 lg:w-56 bg-white rounded-lg"
 				src={product.image}
@@ -48,15 +55,13 @@
 			{#if product.name !== product.display_name}
 			<Tooltip text={product.name}>
 				<button
-					class="text-left lg:text-lg text-sm text-gray-800 dark:text-gray-300 font-semibold"
-					on:click={() => trackAndOpenLink(product)}>
+					class="text-left lg:text-lg text-sm text-gray-800 dark:text-gray-300 font-semibold">
 					<p class="overflow-ellipsis">{product.display_name}</p>
 				</button>
 			</Tooltip>
 			{:else}
 				<button
-					class="text-left lg:text-lg text-sm text-gray-800 dark:text-gray-300 font-semibold"
-					on:click={() => trackAndOpenLink(product)}>
+					class="text-left lg:text-lg text-sm text-gray-800 dark:text-gray-300 font-semibold">
 					<p class="overflow-ellipsis">{product.display_name}</p>
 				</button>
 			{/if}

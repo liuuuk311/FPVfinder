@@ -65,6 +65,7 @@
 	keywords.subscribe(async () => await getSearchResults($keywords, $pageStore))
 	availabilityFilter.subscribe(async () => await getSearchResults($keywords, $pageStore))
 	ordering.subscribe(async () => await getSearchResults($keywords, $pageStore))
+	pageStore.subscribe(async () => await getSearchResults($keywords, $pageStore))
 	
 </script>
 <svelte:head>
