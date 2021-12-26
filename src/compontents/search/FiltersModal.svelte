@@ -1,32 +1,47 @@
 <script>
     import { _ } from 'svelte-i18n';
+    import { onMount } from 'svelte';
     import { clickOutside } from '../../helpers/clickOutside';
-    import { availabilityFilter } from '../../stores/parametersStore';
+    import { availabilityFilter, continentFilter, countryFilter, updatedFilters } from '../../stores/parametersStore';
+    import { getContinents, getCountries } from '../../api/filters'; 
+    import { continentsOptions, countriesOptions } from '../../stores/filters';
 
     export let toggleModal;
     let selectedAvailability = $availabilityFilter || 1;
+    let selectedContinent = $continentFilter || "any";
+    let selectedCountry = $countryFilter || "any";
 
     let availabilityFilters = [
-        {id: 1, text: $_('filter_availability_all')},
+        {id: 1, text: $_('filter_any')},
         {id: 2, text: $_('filter_availability_in_stock')},
         {id: 3, text: $_('filter_availability_out_stock')},
     ]
 
-    function setAvailabilityFilter() {
-        availabilityFilter.set(selectedAvailability);
-    }
-    
     function setFiltersAndCloseModal() {
-        setAvailabilityFilter()
+        availabilityFilter.set(selectedAvailability);
+        continentFilter.set(selectedContinent);
+        countryFilter.set(selectedCountry);
+
         toggleModal()
+        updatedFilters.set(new Date().getTime())
     }
+
+    function updateCountry() {
+        if (selectedCountry !== "any") {
+            selectedContinent = "any"
+        }
+    }
+
+    onMount(() => getContinents());
+    onMount(() => getCountries(selectedContinent));
 
 </script>
 <div x-show="showModal" class="fixed flex items-center justify-center overflow-auto z-50 bg-black bg-opacity-40 left-0 right-0 top-0 bottom-0" x-transition:enter="transition ease duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
     <!-- Modal -->
     <div use:clickOutside on:click_outside={setFiltersAndCloseModal} x-show="showModal" class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow-2xl p-6 w-4/5 md:w-1/2 mx-10" x-transition:enter="transition ease duration-100 transform" x-transition:enter-start="opacity-0 scale-90 translate-y-1" x-transition:enter-end="opacity-100 scale-100 translate-y-0" x-transition:leave="transition ease duration-100 transform" x-transition:leave-start="opacity-100 scale-100 translate-y-0" x-transition:leave-end="opacity-0 scale-90 translate-y-1">
         <h1 class="text-2xl text-bold my-3 dark:text-gray-200">{$_('filter_title')}</h1>
-        <div class="flex flex-col md:flex-row md:items-center">
+        <!-- Availability filter -->
+        <div class="flex flex-col md:flex-row md:items-center my-3">
             <label for="availability" class="text-lg mr-3 dark:text-gray-400">{$_('filter_availability_label')}</label>
             <div class="">
                 <div class="relative">
@@ -44,6 +59,57 @@
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                       </div>
+                </div>
+            </div>
+        </div>
+        <!-- Continent filter -->
+        <div class="flex flex-col md:flex-row md:items-center my-3">
+
+            <label for="continent" class="text-lg mr-3 dark:text-gray-400 { selectedCountry !== "any" ? 'dark:text-gray-500 text-gray-500' : ''}">{$_('filter_continent_label')}</label>
+            <div class="">
+                <div class="relative">
+                    <select 
+                        id="continent"
+                        bind:value={selectedContinent}
+                        on:change={() => getCountries(selectedContinent)}
+                        disabled={selectedCountry !== "any"}
+                        class="appearance-none w-full bg-gray-200 text-gray-700 dark:bg-gray-600 dark:text-gray-300 p-2 px-3 pr-6 rounded-full"
+                        >
+                        <option value="any">{$_('filter_any')}</option>
+                        {#each $continentsOptions as choice}
+                            <option value={choice.id}>
+                                {choice.name}
+                            </option>
+                        {/each}
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Country filter -->
+        <div class="flex flex-col md:flex-row md:items-center my-3">
+            <label for="country" class="text-lg mr-3 dark:text-gray-400">{$_('filter_country_label')}</label>
+            <div class="">
+                <div class="relative">
+                    <select 
+                        id="country"
+                        bind:value={selectedCountry}
+                        on:change={() => updateCountry()}
+                        class="appearance-none w-full bg-gray-200 text-gray-700 dark:bg-gray-600 dark:text-gray-300 p-2 px-3 pr-6 rounded-full"
+                        >
+                        <option value="any">{$_('filter_any')}</option>
+                        {#each $countriesOptions as choice}
+                            <option value={choice.id}>
+                                {choice.name}
+                            </option>
+                        {/each}
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
                 </div>
             </div>
         </div>

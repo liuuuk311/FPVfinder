@@ -1,5 +1,5 @@
 <script context="module">
-	import { keywords, page as pageStore } from "../stores/parametersStore";
+	import { countryFilter, keywords, page as pageStore } from "../stores/parametersStore";
 	/**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
@@ -18,7 +18,7 @@
 	import { onMount } from 'svelte';
 	import { getLocaleFromNavigator } from "svelte-i18n";
 	import { variables } from '../variables';
-	import { availabilityFilter, ordering } from "../stores/parametersStore";
+	import { availabilityFilter, continentFilter, updatedFilters, ordering } from "../stores/parametersStore";
 	
 
 	import SearchBar from '../compontents/search/SearchBar.svelte';
@@ -33,7 +33,7 @@
 
 	async function getSearchResults(query, page) {
 		data = undefined;
-		const url = `${variables.apiURL}/api/v1/products/?search=${query}&page=${page}${getIsAvailable()}${getOrdering()}`;
+		const url = `${variables.apiURL}/api/v1/products/?search=${query}&page=${page}${getIsAvailable()}${getContinent()}${getCountry()}${getOrdering()}`;
 		const response = await fetch(url, {
 			headers: {
 				'Content-Type': 'application/json',
@@ -60,10 +60,21 @@
 		}
 	}
 
+	function getContinent() {
+		if ($countryFilter !== undefined && $countryFilter !== "any") return ""
+		if ($continentFilter === undefined || $continentFilter === "any") return ""
+		return `&continent=${$continentFilter}`
+	}
+
+	function getCountry() {
+		if ($countryFilter === undefined || $countryFilter === "any") return ""
+		return `&country=${$countryFilter}`
+	}
+
 	onMount(async () => await getSearchResults($keywords, $pageStore));
 
 	keywords.subscribe(async () => await getSearchResults($keywords, $pageStore))
-	availabilityFilter.subscribe(async () => await getSearchResults($keywords, $pageStore))
+	updatedFilters.subscribe(async () => await getSearchResults($keywords, $pageStore))
 	ordering.subscribe(async () => await getSearchResults($keywords, $pageStore))
 	pageStore.subscribe(async () => await getSearchResults($keywords, $pageStore))
 	
