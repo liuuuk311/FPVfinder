@@ -15,6 +15,7 @@
   import Header from '../compontents/Header.svelte';
   import Footer from '../compontents/Footer.svelte'
   import CookieBanner from '../compontents/CookieBanner.svelte';
+  import { variables } from '../variables';
 
   // note it's ending is .json, while the filename in static/ is  .json.js
   register('en', () => import('../locales/en.json'));
@@ -43,4 +44,6 @@
     {/if}
   </main>
 </div>
-<GoogleAnalytics properties={[ 'G-RB8FS5F48P' ]} />
+{#if variables.isProd}
+  <GoogleAnalytics properties={[ 'G-RB8FS5F48P' ]} />
+{/if}
