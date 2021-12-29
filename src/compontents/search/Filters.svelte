@@ -1,8 +1,9 @@
 <script>
     import { _ } from 'svelte-i18n';
     import { variables } from '../../variables';
-    import { ordering } from '../../stores/parametersStore';
+    import { ordering, continentFilter, countryFilter } from '../../stores/parametersStore';
     import FiltersModal from './FiltersModal.svelte';
+    import { tutorial } from '../../stores/preferences';
 
     export let productsCount;
     
@@ -30,8 +31,13 @@
     
 
     const toggleModal = (event) => {
+        if ($tutorial && isModalOpen) {
+            tutorial.set(false);
+        }
         isModalOpen = !isModalOpen;
     }
+
+    const tutorialClass = $tutorial && !($continentFilter || $countryFilter) ? 'tutorial-highlight' : '';
 </script>
 {#if isModalOpen}
   <FiltersModal toggleModal={toggleModal}/>
@@ -45,9 +51,9 @@
     </div> 
     {/await}
    
-    <div class="flex flex-row flex-grow w-1/2 max-w-xs justify-end">
+    <div class="flex flex-row flex-grow w-3/4 max-w-xs justify-end">
         <div class="mx-2">
-            <button on:click={toggleModal}  class="md:flex md:flex-row hidden bg-gray-200 rounded-full p-2 px-5 dark:bg-gray-600">
+            <button on:click={toggleModal} class="md:flex md:flex-row hidden bg-gray-200 rounded-full p-2 px-5 dark:bg-gray-600 {tutorialClass}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                 </svg>
@@ -55,7 +61,7 @@
                     {$_('filter_title')}
                 </span>
             </button>
-            <button on:click={toggleModal} class="appearance-none w-full bg-gray-200 dark:bg-gray-600 p-2 px-3 rounded-full md:hidden">
+            <button on:click={toggleModal} class="appearance-none w-full bg-gray-200 dark:bg-gray-600 p-2 px-3 rounded-full md:hidden {tutorialClass}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                 </svg>
