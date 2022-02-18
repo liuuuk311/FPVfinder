@@ -3,9 +3,9 @@
 	/**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
-	export async function load({ page }) {
-		const queryParam = page.query.get('q');
-		const pageParam = page.query.get('page') !== null ? page.query.get('page') : 1
+	export async function load({url}) {
+		const queryParam = url.searchParams.get('q');
+		const pageParam = url.searchParams.get('page') !== null ? url.searchParams.get('page') : 1
 		keywords.set(decodeURI(queryParam));
 		pageStore.set(decodeURI(pageParam));
 		return {

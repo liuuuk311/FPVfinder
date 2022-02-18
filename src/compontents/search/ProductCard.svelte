@@ -4,7 +4,6 @@
 	import { variables } from '../../variables';
 	import { formatPrice } from '../../helpers/currency.js';
 	import ShippingInfo from './ShippingInfo.svelte';
-	import Tooltip from './Tooltip.svelte';
 
 	export let product;
 	export let shippingMethods;
@@ -51,39 +50,31 @@
 				alt={product.name}
 			/>
 		</div>
-		<div class="flex flex-col px-3 pb-2 h-full">
-			{#if product.name !== product.display_name}
-			<Tooltip text={product.name}>
-				<button
-					class="text-left lg:text-lg text-sm text-gray-800 dark:text-gray-300 font-semibold">
-					<p class="overflow-ellipsis">{product.display_name}</p>
-				</button>
-			</Tooltip>
-			{:else}
-				<button
-					class="text-left lg:text-lg text-sm text-gray-800 dark:text-gray-300 font-semibold">
-					<p class="overflow-ellipsis">{product.display_name}</p>
-				</button>
-			{/if}
+		<div class="flex flex-col px-4 md:px-2 pb-2 h-full">
+			<button
+				class="text-left lg:text-lg text-sm text-gray-800 dark:text-gray-300 font-bold">
+				<p class="">{product.name}</p>
+			</button>
 			<div class="flex flex-col h-full justify-end">
-				<div>
-					<p class="md:text-base text-gray-400 font-normal text-xs">{product.store.name}</p>
+				<div class="flex md:flex-row flex-col my-1">
+					<p class="text-sm text-gray-400 font-semibold">{product.store.name}</p>
+					<div class="flex">
 					{#if product.is_available == null}
-						<span class="bg-yellow-500 rounded-full inline-block h-2 w-2" />
-						<p class="mx-1 inline-block md:text-md text-gray-400 font-normal text-xs">
+						<span class="bg-yellow-500 rounded-full inline-block h-3 w-3 my-auto md:ml-2" />
+						<p class="mx-1 inline-block my-auto text-gray-400 font-normal text-xs ">
 							{$_('stock_unknown')}
 						</p>
 					{:else}
 						<span
 							class="{product.is_available
 								? 'bg-green-500'
-								: 'bg-red-500'} rounded-full inline-block h-2 w-2"
+								: 'bg-red-500'} rounded-full inline-block h-3 w-3 my-auto md:ml-2"
 						/>
-						<p class="mx-1 inline-block md:text-md text-gray-400 font-normal text-xs">
+						<p class="mx-1 inline-block my-auto text-gray-400 font-normal text-xs">
 							{product.is_available ? $_('in_stock') : $_('out_of_stock')}
 						</p>
 					{/if}
-				
+				</div>
 				</div>
 				<div class="flex flex-col lg:items-end py-2">
 					<p class="lg:text-2xl text-lg text-gray-700 dark:text-gray-300 font-bold">
@@ -97,7 +88,7 @@
 						</p>
 					{:else}
 						<p
-							class="text-xs lg:text-md text-gray-600 dark:text-gray-400 font-thin lg:overflow-ellipsis"
+							class="text-xs lg:text-md text-gray-600 dark:text-gray-400 font-light lg:overflow-ellipsis"
 						>
 							{product.best_shipping_method
 								? product.best_shipping_method.name
@@ -105,11 +96,16 @@
 						</p>
 					{/if}
 					{#if product.best_shipping_method && product.best_shipping_method.is_free}
-						<p class="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-thin">
+						<p class="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-light">
 							{$_('price')} {formatPrice(0, product.currency)}
 						</p>
+					{:else if product.best_shipping_method && product.best_shipping_method.is_weight_dependent}
+						<p class="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-light">
+							{$_('price_weight_dependent')}
+
+						</p>
 					{:else}
-						<p class="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-thin">
+						<p class="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-light">
 							{$_('price')}
 							{product.best_shipping_method
 								? formatPrice(product.best_shipping_method.price, product.currency)
