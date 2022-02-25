@@ -43,7 +43,7 @@
                             {#if i.is_free}
                                 - {$_('free_shipping_condition')} {formatPrice(i.min_price_shipping_condition, i.currency)}
                             {/if}
-                            
+                            <span>({$_('shipping_countries')} {Array.from(i.countries.map(c => c.name)).join(", ")})</span>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
                             {i.min_shipping_time} {i.min_shipping_time === 1 ? $_('day') : $_('days')}
                         </td>

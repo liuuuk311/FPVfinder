@@ -14,6 +14,7 @@
     "shipping_time": "Shipping Time",
     "other_shipping_methods": "All shipping methods",
     "shipping_unknown": "Unknown Shipping",
+    "shipping_countries": "Valid for:",
     "day": "day",
     "days": "days",
     "close": "Close",
