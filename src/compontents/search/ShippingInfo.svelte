@@ -1,6 +1,5 @@
 <script>
-    import { countriesOptions } from 'src/stores/filters';
-import { _ } from 'svelte-i18n'
+    import { _ } from 'svelte-i18n'
     import { clickOutside } from '../../helpers/clickOutside';
     import { formatPrice } from "../../helpers/currency.js";
 
