@@ -52,12 +52,12 @@
 		</div>
 		<div class="flex flex-col px-4 md:px-2 pb-2 h-full">
 			<button
-				class="text-left lg:text-lg text-sm text-gray-800 dark:text-gray-300 font-bold">
+				class="text-left lg:text-md text-sm text-gray-800 dark:text-gray-300 font-bold">
 				<p class="">{product.name}</p>
 			</button>
 			<div class="flex flex-col h-full justify-end">
 				<div class="flex md:flex-row flex-col my-1">
-					<p class="text-sm text-gray-400 font-semibold">{product.store.name}</p>
+					<p class="text-xs text-gray-400 font-semibold">{product.store.name}</p>
 					<div class="flex">
 					{#if product.is_available == null}
 						<span class="bg-yellow-500 rounded-full inline-block h-3 w-3 my-auto md:ml-2" />
@@ -77,7 +77,7 @@
 				</div>
 				</div>
 				<div class="flex flex-col lg:items-end py-2">
-					<p class="lg:text-2xl text-lg text-gray-700 dark:text-gray-300 font-bold">
+					<p class="lg:text-xl text-lg text-gray-700 dark:text-gray-300 font-bold">
 						{formatPrice(product.price, product.currency)}
 					</p>
 					{#if product.best_shipping_method && product.best_shipping_method.is_free}
