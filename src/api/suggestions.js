@@ -7,7 +7,7 @@ export async function getSuggestions(input) {
         return
     }
 
-    const res = await fetch(`${variables.apiURL}/api/v1/products/autocomplete/functional_suggest/?name_suggest_match__completion_match=${input}`, {
+    const res = await fetch(`${variables.apiURL}/api/v1/products/autocomplete/?q=${input}`, {
         headers: {
             'Content-Type': 'application/json',
         }
@@ -18,5 +18,5 @@ export async function getSuggestions(input) {
     }
 
     const data = await res.json()
-    suggestions.set(data.name_suggest_match__completion_match[0].options.map(value => value.text))
+    suggestions.set(data.results.map(value => value.name))
 }
