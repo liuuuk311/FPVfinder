@@ -23,12 +23,12 @@
         
         <div class="grid grid-cols-2 gap-5">
             <div class="mx-auto my-6">
-                <h3 class="text-center text-lg font-semibold">Buy Me A Coffee</h3>
-                <BuyMeACoffeeButton/>
-            </div>
-            <div class="mx-auto my-6">
                 <h3 class="text-center text-lg font-semibold">PayPal</h3>
                 <PayPalDonateButton/>
+            </div>
+            <div class="mx-auto my-6">
+                <h3 class="text-center text-lg font-semibold">Buy Me A Coffee</h3>
+                <BuyMeACoffeeButton/>
             </div>
             <div class="mx-auto my-6">
                 <h3 class="text-center text-lg font-semibold">Bitcoin (BTC)</h3>

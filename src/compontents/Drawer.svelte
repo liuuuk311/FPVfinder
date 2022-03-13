@@ -1,10 +1,22 @@
 <script>
-    import { _ } from 'svelte-i18n';
+    import { _, getLocaleFromNavigator } from 'svelte-i18n';
     export let isOpen;
 
     const toggleMenu = () => {
         isOpen = !isOpen;
     } 
+
+    const supportLinkMap = {
+        "en": "support",
+        "it": "supporta"
+    }
+    const getLink = () => {
+        const locale = getLocaleFromNavigator();
+        if (locale in supportLinkMap) {
+            return `${locale}/${supportLinkMap[locale]}`
+        }
+        return `en/support`
+    }
 </script>
 <div on:click={toggleMenu} class="transform top-0 left-0 w-full bg-black opacity-40 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-20 {isOpen ? 'translate-x-0' : '-translate-x-full hidden'}">
 </div>
@@ -23,7 +35,7 @@
                     </span>
                 </a>
             </div>
-            <!-- <div class="my-3">
+            <div class="my-3">
                 <a href="/most-viewed" class="flex flex-row" on:click={toggleMenu}>
                     <span class="w-1/4 px-2 text-gray-500 my-auto">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -34,7 +46,7 @@
                         {$_('menu_best_products')}
                     </span>
                 </a>
-            </div> -->
+            </div>
             <div class="my-3">
                 <a href="/stores" class="flex flex-row" on:click={toggleMenu}>
                     <span class="w-1/4 px-2 text-gray-500 my-auto">
@@ -44,6 +56,18 @@
                     </span>
                     <span class="text-2xl font-light text-gray-600 dark:text-gray-400">
                         {$_('menu_stores')}
+                    </span>
+                </a>
+            </div>
+            <div class="my-3">
+                <a href="{getLink()}" class="flex flex-row" on:click={toggleMenu}>
+                    <span class="w-1/4 px-2 text-gray-500 my-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </span>
+                    <span class="text-2xl font-light text-gray-600 dark:text-gray-400">
+                        {$_('menu_donate')}
                     </span>
                 </a>
             </div>
