@@ -7,16 +7,23 @@
         isOpen = !isOpen;
     }
 
-    const supportLink = {
+    const supportLinkMap = {
         "en": "support",
         "it": "supporta"
+    }
+    const getLink = () => {
+        const locale = getLocaleFromNavigator();
+        if (locale in supportLinkMap) {
+            return `${locale}/${supportLinkMap[locale]}`
+        }
+        return `en/support`
     }
 </script>
 
 <div class="hidden md:flex md:flex-row">
     <a href="/most-viewed" class="px-3">{$_('menu_best_products')}</a>
     <a href="/stores" class="px-3">{$_('menu_stores')}</a>
-    <a href="{getLocaleFromNavigator()}/{supportLink[getLocaleFromNavigator()]}" class="px-3">{$_('menu_donate')}</a>
+    <a href="{getLink()}" class="px-3">{$_('menu_donate')}</a>
 </div>
 <div class="md:hidden">
     <button on:click={toggleMenu} class="p-1">
