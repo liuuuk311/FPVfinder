@@ -1,16 +1,22 @@
 <script>
-    import { _ } from 'svelte-i18n';
+    import { _, getLocaleFromNavigator } from 'svelte-i18n';
     export let isOpen;
 
     const toggleMenu = (e) => {
         e.preventDefault();
         isOpen = !isOpen;
-    } 
+    }
+
+    const supportLink = {
+        "en": "support",
+        "it": "supporta"
+    }
 </script>
 
 <div class="hidden md:flex md:flex-row">
-    <!-- <a href="/most-viewed" class="px-3">{$_('menu_best_products')}</a> -->
+    <a href="/most-viewed" class="px-3">{$_('menu_best_products')}</a>
     <a href="/stores" class="px-3">{$_('menu_stores')}</a>
+    <a href="{getLocaleFromNavigator()}/{supportLink[getLocaleFromNavigator()]}" class="px-3">{$_('menu_donate')}</a>
 </div>
 <div class="md:hidden">
     <button on:click={toggleMenu} class="p-1">
