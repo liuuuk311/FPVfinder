@@ -16,7 +16,7 @@
 
 <script>
 	import { onMount } from 'svelte';
-	import { getLocaleFromNavigator } from "svelte-i18n";
+	import { _, getLocaleFromNavigator } from "svelte-i18n";
 	import { variables } from '../variables';
 	import { availabilityFilter, continentFilter, updatedFilters, ordering } from "../stores/parametersStore";
 	
@@ -28,6 +28,7 @@
 	import NoResults from '../compontents/search/NoResults.svelte';
 	import Error from '../compontents/Error.svelte';
 	import Loading from '../compontents/Loading.svelte';
+	import SEO from '../compontents/SEO.svelte';
 
 	let data = undefined;
 
@@ -79,9 +80,7 @@
 	pageStore.subscribe(async () => await getSearchResults($keywords, $pageStore))
 	
 </script>
-<svelte:head>
-	<title>FPV Finder: {$keywords}</title>
-</svelte:head>
+<SEO title={$keywords} metadescription={$keywords + " " + $_('seo_generic_meta_description')} language={getLocaleFromNavigator()}/>
 <SearchBar />
 <Filters />
 {#if !data}
