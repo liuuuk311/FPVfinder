@@ -35,14 +35,15 @@
         <Loading/>
       </div>
     {:else}
-    <div class="mx-2 md:mx-auto max-w-7xl min-h-screen flex flex-col justify-between">
+    <div class="mx-2 md:mx-auto max-w-7xl min-h-screen flex flex-col justify-between pb-16">
       <Header/>
       <slot/>
       <CookieBanner/>
-      <Footer/>
     </div>
     {/if}
   </main>
+  
+  <Footer/>
 </div>
 {#if variables.isProd}
   <GoogleAnalytics properties={[ 'G-RB8FS5F48P' ]} />

@@ -1,102 +1,169 @@
 <script>
 	import { variables } from '../variables';
 	
-	let year = new Date().getFullYear();
 
+	let queries = [
+		"Flight Controller",
+		"ESC",
+		"Stack",
+		"Frame",
+		"Goggles",
+		"Radio",
+		"Battery",
+		"Recivers",
+		"Analog",
+		"HD",
+		"Props",
+		"Camera FPV",
+	]
+
+	let brands = [
+		"TBS",
+		"iFlight",
+		"FatShark",
+		"DJI",
+		"FrSky",
+		"T-Motor",
+		"ImmersionRC",
+		"Lumenier",
+		"HQProp",
+		"Caddx",
+		"Ethix",
+		"EMAX"
+	]
+	let year = new Date().getFullYear();
 </script>
 
-<footer class="dark:text-gray-300 text-gray-700 body-font">
-	<div class="dark:bg-gray-800 bg-gray-100">
-		<div class="py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-			<p class="text-sm text-center sm:text-left">
-				© {year}
-				{variables.websiteName} —
-				<span class="ml-1">Made with ♡ by</span>
-				<a
-					href="https://www.linkedin.com/in/luca-palonca/"
-					rel="noopener noreferrer"
-					class="hover:underline"
-					target="_blank">Luca Palonca</a
-				>
-			</p>
-			<span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-				<a
-					href="https://www.facebook.com/Luca.NorthFPV/"
-					target="_blank"
-					rel="nofollow"
-				>
-					<svg
-						fill="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						class="w-5 h-5"
-						viewBox="0 0 24 24"
+<footer class="dark:text-gray-300 text-gray-700 body-font pt-24 bg-gray-200 dark:bg-gray-700">
+	<div class="container px-6 mx-2 md:mx-auto max-w-7xl">
+		<!-- <div class="flex flex-col md:flex-row">
+			<div class="md:w-2/3 md:text-left md:mr-12 my-8">
+				<h3 class="text-xl uppercase font-bold">{variables.websiteName}</h3>
+				<p>
+					test
+				</p>
+			</div>
+			<div class="my-auto md:ml-12 md:text-left my-8">
+				<h3 class="text-xl uppercase font-bold">Newsletter</h3>
+				<form class="my-5 flex flex-row items-center bg-white dark:bg-gray-600 dark:text-gray-100 rounded-full overflow-hidden justify-between">
+				<div>
+					<input
+						class="appearance-none rounded-full w-full py-2 px-3 bg-white dark:bg-gray-600 dark:text-gray-100  focus:outline-none"
+						type="email"
+						name="email"
+						pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{"{2,}"}$"
+						placeholder="Email"
+						size="40"
+						required
+					/>
+				</div>
+				<div class="flex items-center justify-between">
+					<button
+						class="bg-{variables.mainAccentColor} text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+						type="submit"
 					>
-						<path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-					</svg>
-				</a>
-				<a
-					class="ml-3"
-					href="https://twitter.com/iamlucafpv"
-					target="_blank"
-					rel="nofollow"
-				>
-					<svg
-						fill="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						class="w-5 h-5"
-						viewBox="0 0 24 24"
-					>
-						<path
-							d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
-						/>
-					</svg>
-				</a>
-				<a
-					class="ml-3"
-					href="https://www.instagram.com/iamlucafpv/"
-					target="_blank"
-					rel="nofollow"
-				>
-					<svg
-						fill="none"
-						stroke="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						class="w-5 h-5"
-						viewBox="0 0 24 24"
-					>
-						<rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-						<path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
-					</svg>
-				</a>
-				<a
-					class="ml-3"
-					href="https://www.linkedin.com/in/luca-palonca/"
-					target="_blank"
-					rel="nofollow"
-				>
-					<svg
-						fill="currentColor"
-						stroke="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="0"
-						class="w-5 h-5"
-						viewBox="0 0 24 24"
-					>
-						<path
-							stroke="none"
-							d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-						/>
-						<circle cx="4" cy="4" r="2" stroke="none" />
-					</svg>
-				</a>
-			</span>
+						Subscribe
+					</button>
+				</div>
+			</form>
+			</div>
+			
+		</div> -->
+		
+		<div class="grid lg:grid-cols-2 grid-cols-1 my-8">
+			<div>
+				<h5 class="uppercase font-bold mb-2.5 lg:text-left">Brands</h5>
+				<div class="grid grid-cols-2 mb-6">
+					{#each brands as brand}
+						<a href="/search?q={brand}&utm_source=footer" class="lg:text-left hover:text-{variables.mainAccentColor}">{brand}</a>
+					{/each}
+				</div>
+			</div> 
+			<div>
+				<h5 class="uppercase font-bold mb-2.5 lg:text-left">Search</h5>
+				<div class="grid grid-cols-2 mb-6">
+					{#each queries as query}
+						<a href="/search?q={query}&utm_source=footer" class="lg:text-left hover:text-{variables.mainAccentColor}">{query}</a>
+					{/each}
+				</div>
+			</div>
 		</div>
+	</div>
+	<div class="flex justify-center mb-6">
+		<a href="https://www.facebook.com/Luca.NorthFPV/" target="_blank" rel="nofollow">
+			<svg
+				fill="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				class="w-5 h-5"
+				viewBox="0 0 24 24"
+			>
+				<path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+			</svg>
+		</a>
+		<a class="ml-3" href="https://twitter.com/iamlucafpv" target="_blank" rel="nofollow">
+			<svg
+				fill="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				class="w-5 h-5"
+				viewBox="0 0 24 24"
+			>
+				<path
+					d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+				/>
+			</svg>
+		</a>
+		<a class="ml-3" href="https://www.instagram.com/iamlucafpv/" target="_blank" rel="nofollow">
+			<svg
+				fill="none"
+				stroke="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				class="w-5 h-5"
+				viewBox="0 0 24 24"
+			>
+				<rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+				<path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
+			</svg>
+		</a>
+		<a
+			class="ml-3"
+			href="https://www.linkedin.com/in/luca-palonca/"
+			target="_blank"
+			rel="nofollow"
+		>
+			<svg
+				fill="currentColor"
+				stroke="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="0"
+				class="w-5 h-5"
+				viewBox="0 0 24 24"
+			>
+				<path
+					stroke="none"
+					d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+				/>
+				<circle cx="4" cy="4" r="2" stroke="none" />
+			</svg>
+		</a>
+	</div>
+	<div class="text-center p-2 sm:text-left pb-16">
+		<p class="text-sm text-center ">
+			© {year}
+			{variables.websiteName} —
+			<span class="ml-1">Made with ♡ by</span>
+			<a
+				href="https://www.linkedin.com/in/luca-palonca/"
+				rel="noopener noreferrer"
+				class="hover:underline"
+				target="_blank">Luca Palonca</a
+			>
+		</p>
 	</div>
 </footer>

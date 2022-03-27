@@ -1,20 +1,8 @@
 <script>
     import { _ } from 'svelte-i18n';
-    import { variables } from '../../variables';
     import { ordering, continentFilter, countryFilter } from '../../stores/parametersStore';
     import FiltersModal from './FiltersModal.svelte';
     import { tutorial } from '../../stores/preferences';
-
-    export let productsCount;
-    
-    async function getStores() {
-		const res = await fetch(`${variables.apiURL}/api/v1/stores/stats`, {
-			headers: {
-				'Content-Type': 'application/json',
-			}
-		});
-		return res.ok ? await res.json() : { error: res };
-	}
 
     let isModalOpen = false;
     let selectedOrderingMethod = $ordering || 'relevance';
@@ -28,7 +16,6 @@
     function setOrdering() {
         ordering.set(selectedOrderingMethod);
     }
-    
 
     const toggleModal = (event) => {
         if ($tutorial && isModalOpen) {
@@ -42,15 +29,8 @@
 {#if isModalOpen}
   <FiltersModal toggleModal={toggleModal}/>
 {/if}
-<div class="flex flex-row justify-between items-center my-3 p-2">
-    {#await getStores()}
-        <p></p>
-    {:then data} 
-    <div class="flex items-center justify-center">
-        <p class="text-sm text-gray-600 dark:text-gray-300 md:text-lg">{productsCount} {$_('products_from')} {data.total_stores} {$_('stores')}</p>  
-    </div> 
-    {/await}
-   
+<div class="flex flex-row justify-end my-3 p-2">
+    
     <div class="flex flex-row flex-grow w-3/4 max-w-xs justify-end">
         <div class="mx-2">
             <button on:click={toggleModal} class="md:flex md:flex-row hidden bg-gray-200 rounded-full p-2 px-5 dark:bg-gray-600 {tutorialClass}">

@@ -21,7 +21,6 @@
 </script>
 
 <div class="hidden md:flex md:flex-row">
-    <a href="/most-viewed" class="px-3">{$_('menu_best_products')}</a>
     <a href="/stores" class="px-3">{$_('menu_stores')}</a>
     <a href="{getLink()}" class="px-3">{$_('menu_donate')}</a>
 </div>

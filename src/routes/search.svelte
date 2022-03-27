@@ -83,6 +83,7 @@
 	<title>FPV Finder: {$keywords}</title>
 </svelte:head>
 <SearchBar />
+<Filters />
 {#if !data}
 <div class="flex flex-grow">
 	<Loading/>
@@ -90,7 +91,6 @@
 {:else if 'error' in data}
 	<Error/>
 {:else if data.count > 0}
-	<Filters productsCount={data.count}/>
 	<ProductGrid data={data}/>
 	<Pagination totalItems={data.count}/>
 {:else}

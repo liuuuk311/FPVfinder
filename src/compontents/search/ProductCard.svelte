@@ -1,9 +1,9 @@
 <script>
 	import { _ } from 'svelte-i18n';
-	import { keywords, page } from '../../stores/parametersStore';
-	import { variables } from '../../variables';
+	import { trackAndOpenLink } from '../../helpers/links';
 	import { formatPrice } from '../../helpers/currency.js';
 	import ShippingInfo from './ShippingInfo.svelte';
+	import { keywords, page } from '../../stores/parametersStore';
 
 	export let product;
 	export let shippingMethods;
@@ -15,33 +15,12 @@
 		event.stopPropagation()
 		isModalOpen = !isModalOpen;
 	};
-
-	async function trackAndOpenLink(product) {
-		var productURL = new URL(product.link)
-		productURL.searchParams.append('utm_source', variables.utmSource)
-		productURL.searchParams.append('utm_medium', variables.utmMedium)
-		productURL.searchParams.append('utm_campaign', variables.utmCampaign)
-
-		window.open(productURL, '_blank').focus();
-		await fetch(`${variables.apiURL}/api/v1/products/${product.id}/click/`, {
-			method: 'POST',
-			body: JSON.stringify({
-				clicked_after_seconds: (new Date().getTime() - loadedAt) / 1000,
-				search_query: $keywords,
-				page: $page
-			}),
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		});
-	}
-	// 
 </script>
 
 {#if isModalOpen}
 	<ShippingInfo storeName={product.store.name} info={shippingMethods} {toggleModal} />
 {/if}
-<div class="bg-gray-50 dark:bg-gray-700 rounded-lg sahdow-lg hover:bg-gray-200 dark:hover:bg-gray-600" on:click={() => trackAndOpenLink(product)}>
+<div class="bg-gray-50 dark:bg-gray-700 rounded-lg sahdow-lg hover:bg-gray-200 dark:hover:bg-gray-600" on:click={() => trackAndOpenLink(product, loadedAt, $keywords, $page)}>
 	<div class="flex flex-col h-full">
 		<div  class="m-auto px-2 py-2">
 			<img
