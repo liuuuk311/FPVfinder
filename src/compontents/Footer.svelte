@@ -72,18 +72,18 @@
 		
 		<div class="grid lg:grid-cols-2 grid-cols-1 my-8">
 			<div>
-				<h5 class="uppercase font-bold mb-2.5 lg:text-left">Brands</h5>
+				<h5 class="uppercase font-bold mb-2.5 lg:text-left text-lg">Brands</h5>
 				<div class="grid grid-cols-2 mb-6">
 					{#each brands as brand}
-						<a href="/search?q={brand}&utm_source=footer" class="lg:text-left hover:text-{variables.mainAccentColor}">{brand}</a>
+						<a href="/search?q={brand}&utm_source=footer" class="lg:text-left py-1.5 hover:text-{variables.mainAccentColor}">{brand}</a>
 					{/each}
 				</div>
 			</div> 
 			<div>
-				<h5 class="uppercase font-bold mb-2.5 lg:text-left">Search</h5>
+				<h5 class="uppercase font-bold mb-2.5 lg:text-left text-lg">Search</h5>
 				<div class="grid grid-cols-2 mb-6">
 					{#each queries as query}
-						<a href="/search?q={query}&utm_source=footer" class="lg:text-left hover:text-{variables.mainAccentColor}">{query}</a>
+						<a href="/search?q={query}&utm_source=footer" class="lg:text-left py-1.5 hover:text-{variables.mainAccentColor}">{query}</a>
 					{/each}
 				</div>
 			</div>
