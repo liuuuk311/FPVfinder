@@ -54,7 +54,7 @@
         <div class="flex items-center justify-between">
             <button
                 class="bg-{variables.mainAccentColor} text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-                type="submit"
+                type="submit" aria-label="suggest"
             >
                 {$_("suggestion_btn")}
             </button>

@@ -115,7 +115,7 @@
         </div>
         <!-- Buttons -->
         <div class="text-right space-x-5 mt-5">
-            <button on:click={setFiltersAndCloseModal} class="px-4 py-2 text-sm bg-gray-200 dark:bg-gray-700 dark:text-gray-200 rounded-full transition-colors duration-150 ease-linear border-gray-200 text-gray-500 focus:outline-none font-bold">
+            <button on:click={setFiltersAndCloseModal} aria-label="close" class="px-4 py-2 text-sm bg-gray-200 dark:bg-gray-700 dark:text-gray-200 rounded-full transition-colors duration-150 ease-linear border-gray-200 text-gray-500 focus:outline-none font-bold">
                 {$_('close')}
             </button>
         </div>

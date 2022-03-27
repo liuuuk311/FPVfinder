@@ -30,7 +30,7 @@
 			/>
 		</div>
 		<div class="flex flex-col px-4 md:px-2 pb-2 h-full">
-			<button
+			<button aria-label="open-{product.name}"
 				class="text-left lg:text-md text-sm text-gray-800 dark:text-gray-300 font-bold">
 				<p class="">{product.name}</p>
 			</button>
@@ -92,7 +92,7 @@
 						</p>
 					{/if}
 					<button
-						on:click={toggleModal}
+						on:click={toggleModal} aria-label="close"
 						class="my-2 text-gray-600 dark:text-gray-200 text-md sm:text-sm font-light hidden md:block"
 						>{$_('other_shipping_methods')}</button
 					>

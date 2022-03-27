@@ -18,7 +18,7 @@
 			/>
 		</div>
 		<div class="flex flex-col px-4 md:px-1 pb-2 h-full">
-			<button
+			<button aria-label="open-{product.name}"
 				class="text-left lg:text-md text-sm text-gray-800 dark:text-gray-300 font-bold">
 				<p class="">{product.name}</p>
 			</button>

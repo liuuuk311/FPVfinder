@@ -36,7 +36,7 @@
 						input=search
 					/>
 					<button 
-						on:click={() => setKeywordsAndSearch(typedKeywords)} 
+						on:click={() => setKeywordsAndSearch(typedKeywords)}  aria-label="clear-text"
 						class="bg-{variables.mainAccentColor} text-white text-base rounded-full py-3 px-5 font-bold float-right hidden md:block">
 						{$_('search_btn')}
 					</button>
