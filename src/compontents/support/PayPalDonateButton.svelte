@@ -1,5 +1,5 @@
 <a
-	href="https://www.paypal.com/donate/?hosted_button_id=ZD5H6RKWB7E6S" target="_blank"
+	href="https://www.paypal.com/donate/?hosted_button_id=ZD5H6RKWB7E6S" target="_blank" rel="nofollow"
 	class="paypal-buy-now-button h-12 w-full rounded-lg"
 >
 	<svg
