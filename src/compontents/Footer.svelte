@@ -35,7 +35,7 @@
 </script>
 
 <footer class="dark:text-gray-300 text-gray-700 body-font pt-24 bg-gray-200 dark:bg-gray-700">
-	<div class="container px-6 mx-2 md:mx-auto max-w-7xl">
+	<div class="container mx-4 md:mx-auto lg:w-full max-w-6xl items-center my-auto">
 		<!-- <div class="flex flex-col md:flex-row">
 			<div class="md:w-2/3 md:text-left md:mr-12 my-8">
 				<h3 class="text-xl uppercase font-bold">{variables.websiteName}</h3>

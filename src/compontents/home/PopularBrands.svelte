@@ -1,4 +1,5 @@
 <script>
+	import { variables } from "../../variables";
 	import { _ } from "svelte-i18n";
     import { getBestBrands } from "../../api/products";
 
@@ -11,7 +12,10 @@
 	{:then data}
 	{#if data.count > 0}
         {#each data.results as brand}
-			<h2 class="mx-2 text-2xl md:text-3xl font-bold">{brand.name}</h2>
+			<div class="flex flex-row">
+				<h2 class="mx-2 text-2xl md:text-3xl font-bold inline">{brand.name}</h2>
+				<a class="text-{variables.mainAccentColor} font-bold inline my-auto" href="search/?q={brand.name}">{$_('see_more')}</a>
+			</div>
 			<ProductRow products={brand.products}/>
         {/each}
 	{/if}

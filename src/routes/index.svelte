@@ -5,6 +5,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import PopularProducts from '../compontents/home/PopularProducts.svelte';
 	import PopularBrands from '../compontents/home/PopularBrands.svelte';
+	import SeoContent from '../compontents/home/SeoContent.svelte';
 	import SEO from '../compontents/SEO.svelte';
 	
 	onDestroy(() => suggestions.set([]));
@@ -14,3 +15,4 @@
 <HomeSearchBar />
 <PopularProducts />
 <PopularBrands />
+<SeoContent />
