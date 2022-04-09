@@ -22,7 +22,7 @@
 
 <div class="hidden md:flex md:flex-row">
     <a href="/stores" class="px-3">{$_('menu_stores')}</a>
-    <a href="{getLink()}" class="px-3">{$_('menu_donate')}</a>
+    <!-- <a href="{getLink()}" class="px-3">{$_('menu_donate')}</a> -->
 </div>
 <div class="md:hidden">
     <button on:click={toggleMenu} class="p-1" aria-label="toggle-menu">
