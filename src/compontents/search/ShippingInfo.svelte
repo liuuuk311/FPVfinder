@@ -3,7 +3,7 @@
     import { clickOutside } from '../../helpers/clickOutside';
     import { formatPrice } from "../../helpers/currency.js";
 
-    export let toggleModal;
+    export let toggleShippingInfoModal;
     export let storeName;
     export let info;
 
@@ -11,7 +11,7 @@
 <!-- Modal Background -->
 <div x-show="showModal" class="fixed flex items-center justify-center overflow-auto z-50 bg-black bg-opacity-40 left-0 right-0 top-0 bottom-0" x-transition:enter="transition ease duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
     <!-- Modal -->
-    <div use:clickOutside on:click_outside={toggleModal} x-show="showModal" class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow-2xl p-6 w-1/2 mx-10" x-transition:enter="transition ease duration-100 transform" x-transition:enter-start="opacity-0 scale-90 translate-y-1" x-transition:enter-end="opacity-100 scale-100 translate-y-0" x-transition:leave="transition ease duration-100 transform" x-transition:leave-start="opacity-100 scale-100 translate-y-0" x-transition:leave-end="opacity-0 scale-90 translate-y-1">
+    <div use:clickOutside on:click_outside={toggleShippingInfoModal} x-show="showModal" class="bg-gray-100 dark:bg-gray-800 rounded-xl shadow-2xl p-6 w-1/2 mx-10" x-transition:enter="transition ease duration-100 transform" x-transition:enter-start="opacity-0 scale-90 translate-y-1" x-transition:enter-end="opacity-100 scale-100 translate-y-0" x-transition:leave="transition ease duration-100 transform" x-transition:leave-start="opacity-100 scale-100 translate-y-0" x-transition:leave-end="opacity-0 scale-90 translate-y-1">
         <!-- Title -->
         <span class="font-bold block text-2xl mb-3 dark:text-gray-200">{$_('other_shipping_methods')} - {storeName}</span>
         
@@ -43,7 +43,7 @@
                             {#if i.is_free}
                                 - {$_('free_shipping_condition')} {formatPrice(i.min_price_shipping_condition, i.currency)}
                             {/if}
-                            {#if i.countries.length > 0}
+                            {#if i.countries !== undefined && i.countries.length > 0}
                                 <span>({$_('shipping_countries')} {Array.from(i.countries.map(c => c.name)).join(", ")})</span>
                             {/if}
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
@@ -68,7 +68,7 @@
         </div>
         <!-- Buttons -->
         <div class="text-right space-x-5 mt-5">
-            <button on:click={toggleModal} class="px-4 py-2 text-sm bg-gray-200 dark:bg-gray-700 dark:text-gray-200 rounded-full">{$_('close')}</button>
+            <button on:click={toggleShippingInfoModal} class="px-4 py-2 text-sm bg-gray-200 dark:bg-gray-700 dark:text-gray-200 rounded-full">{$_('close')}</button>
         </div>
     </div>
 </div>

@@ -13,7 +13,8 @@
     "name": "Nome",
     "shipping_time": "Tempo di spedizione",
     "other_shipping_methods": "Altre spedizioni",
-    "shipping_unknown": "Spedizione sconosciuta",
+    "shipping_unknown": "Spedizione Sconosciuta",
+    "suggest_shipping": "Suggerisci Spedizione",
     "shipping_countries": "Valida in",
     "day": "giorno",
     "days": "giorni",
@@ -55,5 +56,14 @@
     "seo_home_title": "Il motore di ricerca FPV, trova sempre i prezzi migliori",
     "seo_home_meta_description": "FPVfinder è un motore di ricerca per Flight Controller, Frame, ESC, Motori, VTX, Antenne, Occhali FPV, Radiocomandi, Riceventi, Eliche. Cerca tra più di 20 negozi online e trova i prezzi più bassi.",
     "seo_generic_meta_description": "al miglior prezzo. Cerca tra più di 20 negozi online e scopri subito dove è disponibile.",
-    "see_more": "Vedi tutti"
+    "see_more": "Vedi tutti",
+    "shipping_suggestion_modal_title": "Suggerisci una spedizione per",
+    "shipping_suggestion_modal_subtitle": "Hai già acquistato da questo negozio?",
+    "shipping_suggestion_modal_content": "Aiuta FPVfinder suggerendo i metodi di spedizione per questo negozio. Puoi specificare il nome della spedizione e il costo.<br/><br/>Nel caso in cui il negozio offra una spedizione gratuita, specifica anche l'ordine minimo sopra la quale è disponibile la spedizione gratuita.",
+    "shipping_suggestion_modal_name": "Nome della spedizione",
+    "shipping_suggestion_modal_price": "Costo della spedizione",
+    "shipping_suggestion_modal_min_price": "Per ordini superiori a",
+    "shipping_suggestion_modal_choice_standard": "Spezione normale",
+    "shipping_suggestion_modal_choice_free": "Spedizione gratuita",
+    "shipping_suggestion_modal_choice_weight": "Il costo dipende dalla dimensione o dal peso"
 }
