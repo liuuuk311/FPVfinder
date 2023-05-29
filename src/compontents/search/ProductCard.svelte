@@ -39,6 +39,7 @@
 				class="object-center object-cover h-36 lg:h-56 w-36 lg:w-56 bg-white rounded-lg"
 				src={product.image}
 				alt={product.name}
+			     	referrerpolicy="no-referrer" 
 			/>
 		</div>
 		<div class="flex flex-col px-4 md:px-2 pb-2 h-full">
